@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Apr 28 16:46:35 CEST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014d-007e-6bad-000000c25cb0 
+on database directory /home/francesco/git/Progetti_uniRoma1/Web_app_w_db/Prima_web_app_completa/primoDb with class loader sun.misc.Launcher$AppClassLoader@1908ca1 
+Loaded from file:/home/francesco/git/Progetti_uniRoma1/Web_app_w_db/Prima_web_app_completa/WebContent/WEB-INF/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_75-b13
+user.dir=/home/francesco/git/Progetti_uniRoma1/Web_app_w_db/Prima_web_app_completa
+os.name=Linux
+os.arch=i386
+os.version=3.13.0-48-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
