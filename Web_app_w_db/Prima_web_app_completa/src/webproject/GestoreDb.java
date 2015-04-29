@@ -2,6 +2,7 @@ package webproject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,12 +22,18 @@ public class GestoreDb {
 	public ArrayList<String> findByName(String name){
 		
 		ArrayList<String> result=new ArrayList<String>();
+		PreparedStatement query=null;
+		Connection c=null;
+		ResultSet rs=null;
+		Statement s=null;
 		
 		try {
-			Connection c=DriverManager.getConnection(dbURL, username, password);
-			Statement s=c.createStatement();
-			s.execute("select username,pwd from users where username="+name);
-			ResultSet rs=s.getResultSet();
+			 c=DriverManager.getConnection(dbURL, username, password);
+			s=c.createStatement();
+			//s.execute("select username,pwd from users where username="+name);
+			query=c.prepareStatement("select username,pwd from users where username=?");
+			query.setString(1, name);
+			rs=s.getResultSet();
 			while(rs.next()){
 				
 				result.add(rs.getString("username"));
@@ -41,6 +48,22 @@ public class GestoreDb {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			
+		
+			try {
+				rs.close();
+				s.close();
+				c.close();
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 		
 		
