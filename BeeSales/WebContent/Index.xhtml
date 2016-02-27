@@ -72,13 +72,13 @@ select {
 			$(".date").datepicker();
 
 			$(".quantita").spinner({
-				min : 1,
+				min : 0.1,
 				step : 0.1,
 				numberFormat : "n"
 			});
 			$(".incasso").spinner({
-				min : 1,
-				step : 0.05,
+				min : 0.5,
+				step : 0.5,
 				numberFormat : "c"
 			});
 
@@ -89,19 +89,19 @@ select {
 			$('.accordion').accordion();
 
 		});
-		
-		function reloadJqueryUI(){
-			
+
+		function reloadJqueryUI() {
+
 			$(".date").datepicker();
 
 			$(".quantita").spinner({
-				min : 1,
+				min : 0.1,
 				step : 0.1,
 				numberFormat : "n"
 			});
 			$(".incasso").spinner({
-				min : 1,
-				step : 0.05,
+				min : 0.5,
+				step : 0.5,
 				numberFormat : "c"
 			});
 
@@ -110,9 +110,8 @@ select {
 			$(".button").button();
 
 			$('.accordion').accordion();
-			
+
 		}
-		
 	</script>
 </h:head>
 <h:body>
@@ -128,29 +127,65 @@ select {
 
 		<h3 align="center">Inserisci una nuova vendita</h3>
 		<h:form>
-			<div align="center">
+		<div align="center">
+		<h:panelGrid columns="3">
 
-				<label>Data vendita</label> <br></br>
-				<h:inputText class="date" value="#{venditaBean.data}">
+			
+
+				<label>Data vendita</label>
+				<br></br>
+				<h:inputText id="dataven" class="date" value="#{venditaBean.data}"
+					required="true" requiredMessage="Inserisci una data"
+					converterMessage="L'elemento inserito deve essere una data">
 					<f:convertDateTime pattern="MM/dd/yy" />
+					<f:validator validatorId="dateValidator"/>
+					<f:ajax event="mouseup" render="dataError"/>
 				</h:inputText>
-				<br></br> <label>Varieta di Miele</label> <br></br>
-				<h:selectOneMenu value="#{venditaBean.tipoMiele}"
-					class="menuTendina">
+				<h:message id="dataError" for="dataven" />
+				<br></br>
+				<label>Varieta di Miele</label>
+				<br></br>
+				<h:selectOneMenu id="tipo" value="#{venditaBean.tipoMiele}"
+					class="menuTendina" required="true"
+					requiredMessage="Seleziona la varieta di miele">
 					<f:selectItem itemLabel="--Seleziona varieta--"></f:selectItem>
 					<f:selectItems value="#{venditaBean.tipiMiele}" var="miele"
 						itemLabel="#{miele}" itemValue="#{miele}"></f:selectItems>
+						<f:ajax event="mouseover" render="tipoError"> </f:ajax>
 				</h:selectOneMenu>
-				<br></br> <label>Tipo di confezione</label> <br></br>
+				<h:message id="varError" for="tipo" />
+				<br></br>
+				<label>Tipo di confezione</label>
+				<br></br>
 				<h:selectOneRadio id="tipoBarattolo"
-					value="#{venditaBean.tipoBarattolo}">
+					value="#{venditaBean.tipoBarattolo}" required="true"
+					requiredMessage="Seleziona il tipo di confezione">
 					<f:selectItem itemValue="Barattolo" itemLabel="Barattolo"></f:selectItem>
 					<f:selectItem itemValue="Squeezer" itemLabel="Squeezer"></f:selectItem>
+					<f:ajax event="mouseup" render="tipoError"> </f:ajax>
 				</h:selectOneRadio>
-				<br></br> <label>Quantita (in Kg)</label> <br></br>
-				<h:inputText class="quantita" value="#{venditaBean.quantitaKg}"></h:inputText>
-				<br></br> <label>Incasso (in €)</label> <br></br>
-				<h:inputText class="incasso" value="#{venditaBean.incasso}"></h:inputText>
+				<h:message id="tipoError" for="tipoBarattolo"/>
+				<br></br>
+				<label>Quantita (in Kg)</label>
+				<br></br>
+				<h:inputText id="qt" class="quantita"
+					value="#{venditaBean.quantitaKg}" required="true"
+					requiredMessage="Inserisci la quantita (Kg)"
+					validatorMessage="Quantita minima 0.1kg">
+					<f:validateDoubleRange minimum="0.1"/>
+					<f:ajax event="mouseover" render="qtError"/>
+				</h:inputText>
+				<h:message id="qtError" for="qt" />
+				<br></br>
+				<label>Incasso (in €)</label>
+				<br></br>
+				<h:inputText id="money" class="incasso" value="#{venditaBean.incasso}"
+					required="true" requiredMessage="Inserisci l'incasso (€)"
+					validatorMessage="Quantita minima 0.50€">
+					<f:validateDoubleRange minimum="0.5"/>
+					<f:ajax event="mouseover" render="moError"/>
+				</h:inputText>
+				<h:message id="moError" for="money" />
 				<br></br>
 				<h:commandButton action="#{venditaBean.inserisciVendita}"
 					value="Inserisci Nuova Vendita" class="button">
@@ -158,15 +193,17 @@ select {
 					<f:ajax execute="@form" render="resultTable"></f:ajax>
 
 				</h:commandButton>
+				</h:panelGrid>
 
-			</div>
+			
+		</div>
 
 
 
 			<h2>Storico Generale Vendite</h2>
 			<h:dataTable id="resultTable" var="vend"
 				value="#{venditaBean.storico}" border="1" styleClass="mainTable"
-				headerClass="heading" rowClasses="even,odd">
+				headerClass="heading" rowClasses="even,odd" >
 				<h:column>
 					<f:facet name="header">Data vendita</f:facet>
 					<!-- <h:selectBooleanCheckbox value="#{vend.editabile}"><f:ajax render="@form" /></h:selectBooleanCheckbox> -->
@@ -219,7 +256,7 @@ select {
 				</h:selectOneMenu>
 				<h:commandButton action="#{ricercaVenditeBean.selezionaModoRicerca}"
 					value="Seleziona" class="button">
-					<f:ajax execute="@form" render="options" onevent="reloadJqueryUI"/>
+					<f:ajax execute="@form" render="options" onevent="reloadJqueryUI" />
 				</h:commandButton>
 
 			</div>
@@ -275,7 +312,7 @@ select {
 						<f:facet name="header">Tipo Barattolo</f:facet>
 						#{vend.tipoBarattolo}
 					</h:column>
-			
+
 				</h:dataTable>
 
 
