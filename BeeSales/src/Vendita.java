@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Date;
 
 
@@ -12,11 +13,17 @@ public class Vendita {
 	private Date data;
 	private String tipoMiele;
 	private boolean editabile=false;
+	private Integer monthAsInteger;
 	
 	
 	
 	
-	
+	public Integer getMonthAsInteger() {
+		return monthAsInteger;
+	}
+	public void setMonthAsInteger(Integer monthAsInteger) {
+		this.monthAsInteger = monthAsInteger;
+	}
 	public boolean isEditabile() {
 		return editabile;
 	}
@@ -36,7 +43,10 @@ public class Vendita {
 		this.incasso = incasso;
 	}
 	public double getQuantitaKg() {
-		return quantitaKg;
+		
+		Double qt= new Double(quantitaKg);
+		
+		return qt.floatValue();
 	}
 	public void setQuantitaKg(double quantitaKg) {
 		this.quantitaKg = quantitaKg;

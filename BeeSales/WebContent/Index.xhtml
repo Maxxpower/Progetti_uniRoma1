@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="ISO-8859-1"></meta>
 	<title>BeeSales</title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
 	<link href="./jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" />
 	<style>
 body {
@@ -67,174 +67,166 @@ select {
 	<script>
 		//Script Jquery per JqueryUI
 
-		$(document).ready(function() {
+		jQuery.noConflict();
+		jQuery(document).ready(function() {
 
-			$(".date").datepicker();
-
-			$(".quantita").spinner({
-				min : 0.1,
-				step : 0.1,
-				numberFormat : "n"
-			});
-			$(".incasso").spinner({
-				min : 0.5,
-				step : 0.5,
-				numberFormat : "c"
-			});
-
-			$(".menuTendina").selectmenu();
-
-			$(".button").button();
-
-			$('.accordion').accordion();
+			reloadJqueryUI();
 
 		});
 
 		function reloadJqueryUI() {
 
-			$(".date").datepicker();
+			jQuery(".date").datepicker();
 
-			$(".quantita").spinner({
+			jQuery(".quantita").spinner({
 				min : 0.1,
 				step : 0.1,
 				numberFormat : "n"
 			});
-			$(".incasso").spinner({
+			jQuery(".incasso").spinner({
 				min : 0.5,
 				step : 0.5,
 				numberFormat : "c"
 			});
 
-			$(".menuTendina").selectmenu();
+			jQuery(".menuTendina").selectmenu();
 
-			$(".button").button();
+			jQuery(".button").button();
 
-			$('.accordion').accordion();
+			jQuery('.accordion').accordion();
+
 
 		}
 	</script>
 </h:head>
 <h:body>
 
+<!-- TODO List of stylesheets and scripts with facelets-->
+<h:outputStylesheet library="css" name="styles.css"/>
+
+
 
 
 	<fieldset>
-		<h1 align="center">Benvenuto in BeeSales, Il registro vendite di
-			MieleImperioli</h1>
+		<h1 align="center" class="title">Benvenuto in BeeSales, Il
+			registro vendite di MieleImperioli</h1>
 	</fieldset>
 
 	<fieldset class="accordion">
 
 		<h3 align="center">Inserisci una nuova vendita</h3>
 		<h:form>
-		<div align="center">
-		<h:panelGrid columns="3">
+			<div align="center">
+				<h:panelGrid columns="3">
 
-			
+					<label>Data vendita</label>
+					<br></br>
+					<h:inputText id="dataven" class="date" value="#{venditaBean.data}"
+						required="true" requiredMessage="Inserisci una data"
+						converterMessage="L'elemento inserito deve essere una data">
+						<f:convertDateTime pattern="MM/dd/yy" />
+						<f:validator validatorId="dateValidator" />
+						<f:ajax event="change" render="dataError" />
+						<f:ajax event="blur" render="dataError" />
+					</h:inputText>
+					<h:message id="dataError" for="dataven" styleClass="error" />
+					<br></br>
+					<label>Varieta di Miele</label>
+					<br></br>
+					<h:selectOneMenu id="tipo" value="#{venditaBean.tipoMiele}"
+						class="menuTendina" required="true"
+						requiredMessage="Seleziona la varieta di miele">
+						<f:selectItems value="#{venditaBean.tipiMiele}" var="miele"
+							itemLabel="#{miele}" itemValue="#{miele}"></f:selectItems>
+						<f:ajax event="mouseover" render="tipoError">
+						</f:ajax>
+					</h:selectOneMenu>
+					<h:message id="varError" for="tipo" styleClass="error" />
+					<br></br>
+					<label>Tipo di confezione</label>
+					<br></br>
+					<h:selectOneRadio id="tipoBarattolo"
+						value="#{venditaBean.tipoBarattolo}" required="true"
+						requiredMessage="Seleziona il tipo di confezione">
+						<f:selectItem itemValue="Barattolo" itemLabel="Barattolo"></f:selectItem>
+						<f:selectItem itemValue="Squeezer" itemLabel="Squeezer"></f:selectItem>
+						<f:ajax event="mouseup" render="tipoError">
+						</f:ajax>
+					</h:selectOneRadio>
+					<h:message id="tipoError" for="tipoBarattolo" styleClass="error" />
+					<br></br>
+					<label>Quantita (in Kg)</label>
+					<br></br>
+					<h:inputText id="qt" class="quantita"
+						value="#{venditaBean.quantitaKg}" required="true"
+						requiredMessage="Inserisci la quantita (Kg)"
+						validatorMessage="Quantita minima 0.1kg">
+						<f:validateDoubleRange minimum="0.1" />
+						<f:ajax event="change" render="qtError" styleClass="error" />
+						<f:ajax event="blur" render="qtError" styleClass="error" />
+					</h:inputText>
+					<h:message id="qtError" for="qt" styleClass="error" />
+					<br></br>
+					<label>Incasso (in €)</label>
+					<br></br>
+					<h:inputText id="money" class="incasso"
+						value="#{venditaBean.incasso}" required="true"
+						requiredMessage="Inserisci l'incasso (€)"
+						validatorMessage="Quantita minima 0.50€">
+						<f:validateDoubleRange minimum="0.5" />
+						<f:ajax event="change" render="moError" styleClass="error" />
+						<f:ajax event="blur" render="moError" styleClass="error" />
+					</h:inputText>
+					<h:message id="moError" for="money" styleClass="error" />
+					<br></br>
+					<h:commandButton action="#{venditaBean.inserisciVendita}"
+						value="Inserisci Nuova Vendita" class="button">
 
-				<label>Data vendita</label>
-				<br></br>
-				<h:inputText id="dataven" class="date" value="#{venditaBean.data}"
-					required="true" requiredMessage="Inserisci una data"
-					converterMessage="L'elemento inserito deve essere una data">
-					<f:convertDateTime pattern="MM/dd/yy" />
-					<f:validator validatorId="dateValidator"/>
-					<f:ajax event="mouseup" render="dataError"/>
-				</h:inputText>
-				<h:message id="dataError" for="dataven" />
-				<br></br>
-				<label>Varieta di Miele</label>
-				<br></br>
-				<h:selectOneMenu id="tipo" value="#{venditaBean.tipoMiele}"
-					class="menuTendina" required="true"
-					requiredMessage="Seleziona la varieta di miele">
-					<f:selectItem itemLabel="--Seleziona varieta--"></f:selectItem>
-					<f:selectItems value="#{venditaBean.tipiMiele}" var="miele"
-						itemLabel="#{miele}" itemValue="#{miele}"></f:selectItems>
-						<f:ajax event="mouseover" render="tipoError"> </f:ajax>
-				</h:selectOneMenu>
-				<h:message id="varError" for="tipo" />
-				<br></br>
-				<label>Tipo di confezione</label>
-				<br></br>
-				<h:selectOneRadio id="tipoBarattolo"
-					value="#{venditaBean.tipoBarattolo}" required="true"
-					requiredMessage="Seleziona il tipo di confezione">
-					<f:selectItem itemValue="Barattolo" itemLabel="Barattolo"></f:selectItem>
-					<f:selectItem itemValue="Squeezer" itemLabel="Squeezer"></f:selectItem>
-					<f:ajax event="mouseup" render="tipoError"> </f:ajax>
-				</h:selectOneRadio>
-				<h:message id="tipoError" for="tipoBarattolo"/>
-				<br></br>
-				<label>Quantita (in Kg)</label>
-				<br></br>
-				<h:inputText id="qt" class="quantita"
-					value="#{venditaBean.quantitaKg}" required="true"
-					requiredMessage="Inserisci la quantita (Kg)"
-					validatorMessage="Quantita minima 0.1kg">
-					<f:validateDoubleRange minimum="0.1"/>
-					<f:ajax event="mouseover" render="qtError"/>
-				</h:inputText>
-				<h:message id="qtError" for="qt" />
-				<br></br>
-				<label>Incasso (in €)</label>
-				<br></br>
-				<h:inputText id="money" class="incasso" value="#{venditaBean.incasso}"
-					required="true" requiredMessage="Inserisci l'incasso (€)"
-					validatorMessage="Quantita minima 0.50€">
-					<f:validateDoubleRange minimum="0.5"/>
-					<f:ajax event="mouseover" render="moError"/>
-				</h:inputText>
-				<h:message id="moError" for="money" />
-				<br></br>
-				<h:commandButton action="#{venditaBean.inserisciVendita}"
-					value="Inserisci Nuova Vendita" class="button">
+						<f:ajax execute="@form" render="result :grafico" onevent="reloadJqueryUI"></f:ajax>
 
-					<f:ajax execute="@form" render="resultTable"></f:ajax>
-
-				</h:commandButton>
+					</h:commandButton>
 				</h:panelGrid>
 
-			
-		</div>
+
+			</div>
 
 
+			<h:panelGroup id="result">
+				<h2>Storico Generale Vendite</h2>
+				<div id="scroll" style="height: 300px; overflow: auto;">
+				<h:dataTable id="storicoTable" var="vend"
+					value="#{venditaBean.storico}" border="1" styleClass="mainTable"
+					headerClass="heading" rowClasses="even,odd"
+					rendered="#{not empty venditaBean.storico}">
+					<h:column>
+						<f:facet name="header">Data vendita</f:facet>
 
-			<h2>Storico Generale Vendite</h2>
-			<h:dataTable id="resultTable" var="vend"
-				value="#{venditaBean.storico}" border="1" styleClass="mainTable"
-				headerClass="heading" rowClasses="even,odd" >
-				<h:column>
-					<f:facet name="header">Data vendita</f:facet>
-					<!-- <h:selectBooleanCheckbox value="#{vend.editabile}"><f:ajax render="@form" /></h:selectBooleanCheckbox> -->
-					<h:outputText value="#{vend.data}" />
+						<h:outputText value="#{vend.data}">
+							<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+						</h:outputText>
 
 
-					<!-- <h:inputText class="date" value="#{vend.data}"
-						rendered="#{vend.editabile}" /> -->
-					<!-- 					<h:commandButton value="Aggiorna" rendered="#{vend.editabile}"> -->
-					<!-- 						<f:ajax render="@form" execute="@form" />
-					</h:commandButton> -->
-
-				</h:column>
-				<h:column>
-					<f:facet name="header">Quantita (Kg)</f:facet>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Quantita (Kg)</f:facet>
 		#{vend.quantitaKg}
 		</h:column>
-				<h:column>
-					<f:facet name="header">Incasso (€)</f:facet>
+					<h:column>
+						<f:facet name="header">Incasso (€)</f:facet>
 		#{vend.incasso}
 		</h:column>
 
-				<h:column>
-					<f:facet name="header">Tipo Miele</f:facet>
+					<h:column>
+						<f:facet name="header">Tipo Miele</f:facet>
 		#{vend.tipoMiele}
 		</h:column>
-				<h:column>
-					<f:facet name="header">Tipo Barattolo</f:facet>
+					<h:column>
+						<f:facet name="header">Tipo Barattolo</f:facet>
 		#{vend.tipoBarattolo}
 		</h:column>
-			</h:dataTable>
+				</h:dataTable>
+				</div>
+			</h:panelGroup>
 
 
 		</h:form>
@@ -270,11 +262,12 @@ select {
 					<f:selectItems value="#{ricercaVenditeBean.mesiAnno}" var="mese"
 						itemLabel="#{mese}" itemValue="#{mese}"></f:selectItems>
 				</h:selectOneMenu>
-				<h:inputText styleClass="date"
+				<h:inputText class="date"
 					value="#{ricercaVenditeBean.giornoRicerca}"
 					rendered="#{ricercaVenditeBean.giorno}">
-					<f:convertDateTime pattern="MM/dd/yy" />
+					<f:convertDateTime pattern="dd/MM/yy" />
 				</h:inputText>
+				<h:inputText id="dateYear" value="#{ricercaVenditeBean.annoRicerca}" rendered="#{ricercaVenditeBean.anno}"/>
 				<h:commandButton action="#{ricercaVenditeBean.ricerca}"
 					value="Ricerca"
 					rendered="#{ricercaVenditeBean.giorno || ricercaVenditeBean.mese || ricercaVenditeBean.anno}"
@@ -284,7 +277,7 @@ select {
 			</h:panelGroup>
 
 			<h:panelGroup id="searchTable">
-
+				<div id="scroll" style="height: 300px; overflow: auto;">
 				<h:dataTable id="searchResultTable"
 					value="#{ricercaVenditeBean.risultatoRicerca}" var="vend"
 					border="1" styleClass="mainTable" headerClass="heading"
@@ -293,7 +286,9 @@ select {
 
 					<h:column>
 						<f:facet name="header">Data vendita</f:facet>
-						<h:outputText value="#{vend.data}" />
+						<h:outputText value="#{vend.data}">
+							<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+						</h:outputText>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Quantita (Kg)</f:facet>
@@ -314,8 +309,10 @@ select {
 					</h:column>
 
 				</h:dataTable>
+				</div>
 
-
+				<h:outputText value="Nessun risultato trovato!" styleClass="error"
+					rendered="#{empty ricercaVenditeBean.risultatoRicerca and (ricercaVenditeBean.giorno || ricercaVenditeBean.mese || ricercaVenditeBean.anno)}" />
 
 
 
@@ -324,13 +321,25 @@ select {
 		</h:form>
 
 
+	<h3 align="center">Statistiche</h3>
+		<h:panelGroup id="grafico" layout="block">
 
+
+
+			<p:chart type="line" model="#{graficoVenditeBean.lm}"
+				style="height:300px;" />
+			
+			<h3 align="left">Altre statistiche</h3>
+			<ul>
+			<li><b>Incasso totale: </b> <h:outputText value="#{graficoVenditeBean.incassoTotale}"/></li>
+			<li><b>Quantità totale venduta (Kg): </b> <h:outputText value="#{graficoVenditeBean.quantitaTotale}"/></li>
+			<li><b>Miglior mese: </b> <h:outputText value="#{graficoVenditeBean.bestMonth}"/></li>
+			</ul>
+			
+		</h:panelGroup>
+		
 
 	</fieldset>
-
-
-
-
 
 
 </h:body>

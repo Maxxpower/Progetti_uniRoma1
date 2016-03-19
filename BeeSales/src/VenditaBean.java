@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -23,7 +24,7 @@ public class VenditaBean {
 	private double quantitaKg;
 	private Date data;
 	private String tipoMiele;
-	//lista delle opzioni da visualizzare per le varietà di miele disponibili
+	//lista delle opzioni da visualizzare per le varietï¿½ di miele disponibili
 	private List<String> tipiMiele=Arrays.asList("Millefiori","Castagno","Acacia","Primifiori");
 	//lista delle vendite pregresse
 	
@@ -73,6 +74,9 @@ public class VenditaBean {
 
 	public double getQuantitaKg() {
 		return quantitaKg;
+		
+		
+		
 	}
 
 	public void setQuantitaKg(double quantitaKg) {

@@ -12,10 +12,10 @@ h1,h2,h3 {
 h1.title {
   display: table;
   margin: auto;
-  background-color: #afc4d6;
+  background-color: #e69700;
   border-width: 4px;
   border-style: outset;
-  border-color: #9fd1ff;
+  border-color: #e69701;
   padding: 5px 8px;
   letter-spacing: -.025em;
 } 
@@ -76,7 +76,7 @@ text-indent: 20px;
 font-family: Times New Roman, serif;
 font-size: 18px;
 color: white;
-background-color: silver;
+background-color: #1484e6;
 text-indent: 20px;
 }
 .mainTable {
@@ -100,6 +100,6 @@ font-family: sans-serif;
 font-weight: bold;
 font-size: 20px;
 color: black;
-background-color: silver;
+background-color: #e69700;
 text-align: center; }
 

@@ -19,10 +19,11 @@ public class RicercaVenditeBean {
 	private String meseRicerca;
 	private int annoRicerca;
 
-	private final String[] mesiAnno = { "Gennaio", "Febbraio", "Marzo",
-			"Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre",
-			"Ottobre", "Novembre", "Dicembre" };
+	private final String[] mesiAnno = { "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio",
+			"Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre" };
 	private final String[] modiRicerca = { "Mese", "Giorno", "Anno" };
+	
+	
 
 	public String[] getModiRicerca() {
 		return modiRicerca;
@@ -104,12 +105,16 @@ public class RicercaVenditeBean {
 		VenditeManager vm = new VenditeManager();
 
 		if (modoRicerca.equals("Mese")) {
-			
-			risultatoRicerca=vm.selectByMonth(meseRicerca);
+
+			risultatoRicerca = vm.selectByMonth(meseRicerca);
 
 		} else if (modoRicerca.equals("Giorno")) {
+			
+			risultatoRicerca= vm.selectByDay(giornoRicerca);
 
 		} else if (modoRicerca.equals("Anno")) {
+
+			risultatoRicerca = vm.selectByYear(annoRicerca);
 
 		}
 
@@ -118,28 +123,27 @@ public class RicercaVenditeBean {
 	}
 
 	public String selezionaModoRicerca() {
-		
+
 		if (modoRicerca.equals("Mese")) {
-			
+
 			setMese(true);
 			setGiorno(false);
 			setAnno(false);
 
 		} else if (modoRicerca.equals("Giorno")) {
-			
+
 			setGiorno(true);
 			setMese(false);
 			setAnno(false);
 
 		} else if (modoRicerca.equals("Anno")) {
-			
+
 			setAnno(true);
 			setGiorno(false);
 			setMese(false);
 
+
 		}
-		
-		
 
 		return (null);
 	}
