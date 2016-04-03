@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="ISO-8859-1"></meta>
+	<title>BeeSales</title>
+	<link href="./jquery-ui/jquery-ui.css" rel="stylesheet" />
+	<style>
+body {
+	font: 62.5% "Trebuchet MS", sans-serif;
+	margin: 50px;
+}
+
+.demoHeaders {
+	margin-top: 2em;
+}
+
+#dialog-link {
+	padding: .4em 1em .4em 20px;
+	text-decoration: none;
+	position: relative;
+}
+
+#dialog-link span.ui-icon {
+	margin: 0 5px 0 0;
+	position: absolute;
+	left: .2em;
+	top: 50%;
+	margin-top: -8px;
+}
+
+#icons {
+	margin: 0;
+	padding: 0;
+}
+
+#icons li {
+	margin: 2px;
+	position: relative;
+	padding: 4px 0;
+	cursor: pointer;
+	float: left;
+	list-style: none;
+}
+
+#icons span.ui-icon {
+	float: left;
+	margin: 0 4px;
+}
+
+.fakewindowcontain .ui-widget-overlay {
+	position: absolute;
+}
+
+.ui-menu { width: 200px; }
+.ui-widget-header { padding: 0.2em; }
+
+select {
+	width: 200px;
+}
+</style>
+
+
+	<script type="text/javascript" src="./scripts/utils.js" />
+	<script src="./jquery-ui/external/jquery/jquery.js"></script>
+	<script src="./jquery-ui/jquery-ui.js"></script>
+</h:head>
+<h:body>
+
+	<ui:composition template="template/main_template.xhtml">
+
+	<ui:define name="content">
+
+
+	<fieldset class="accordion">
+
+		<h3>Inserisci una nuova vendita</h3>
+		<h:form>
+			<div align="center">
+				<h:panelGrid columns="3">
+
+					<label>Data vendita</label>
+					<br></br>
+					<h:inputText id="dataven" class="date" value="#{venditaBean.data}"
+						required="true" requiredMessage="Inserisci una data"
+						converterMessage="L'elemento inserito deve essere una data">
+						<f:convertDateTime pattern="MM/dd/yy" />
+						<f:validator validatorId="dateValidator" />
+						<f:ajax event="change" render="dataError" />
+						<f:ajax event="blur" render="dataError" />
+					</h:inputText>
+					<h:message id="dataError" for="dataven" styleClass="error" />
+					<br></br>
+					<label>Varieta di Miele</label>
+					<br></br>
+					<h:selectOneMenu id="tipo" value="#{venditaBean.tipoMiele}"
+						class="menuTendina" required="true"
+						requiredMessage="Seleziona la varieta di miele">
+						<f:selectItems value="#{venditaBean.tipiMiele}" var="miele"
+							itemLabel="#{miele}" itemValue="#{miele}"></f:selectItems>
+						<f:ajax event="mouseover" render="tipoError">
+						</f:ajax>
+					</h:selectOneMenu>
+					<h:message id="varError" for="tipo" styleClass="error" />
+					<br></br>
+					<label>Tipo di confezione</label>
+					<br></br>
+					<h:selectOneRadio id="tipoBarattolo"
+						value="#{venditaBean.tipoBarattolo}" required="true"
+						requiredMessage="Seleziona il tipo di confezione">
+						<f:selectItem itemValue="Barattolo" itemLabel="Barattolo"></f:selectItem>
+						<f:selectItem itemValue="Squeezer" itemLabel="Squeezer"></f:selectItem>
+						<f:ajax event="mouseup" render="tipoError">
+						</f:ajax>
+					</h:selectOneRadio>
+					<h:message id="tipoError" for="tipoBarattolo" styleClass="error" />
+					<br></br>
+					<label>Quantita (in Kg)</label>
+					<br></br>
+					<h:inputText id="qt" class="quantita"
+						value="#{venditaBean.quantitaKg}" required="true"
+						requiredMessage="Inserisci la quantita (Kg)"
+						validatorMessage="Quantita minima 0.1kg">
+						<f:validateDoubleRange minimum="0.1" />
+						<f:ajax event="change" render="qtError" styleClass="error" />
+						<f:ajax event="blur" render="qtError" styleClass="error" />
+					</h:inputText>
+					<h:message id="qtError" for="qt" styleClass="error" />
+					<br></br>
+					<label>Incasso (in €)</label>
+					<br></br>
+					<h:inputText id="money" class="incasso"
+						value="#{venditaBean.incasso}" required="true"
+						requiredMessage="Inserisci l'incasso (€)"
+						validatorMessage="Quantita minima 0.50€">
+						<f:validateDoubleRange minimum="0.5" />
+						<f:ajax event="change" render="moError" styleClass="error" />
+						<f:ajax event="blur" render="moError" styleClass="error" />
+					</h:inputText>
+					<h:message id="moError" for="money" styleClass="error" />
+					<br></br>
+					<h:commandButton action="#{venditaBean.inserisciVendita}"
+						value="Inserisci Nuova Vendita" class="button">
+
+						<f:ajax execute="@form" render="result :grafico"
+							onevent="reloadJqueryUI"></f:ajax>
+
+					</h:commandButton>
+				</h:panelGrid>
+
+
+			</div>
+
+
+			<h:panelGroup id="result">
+				<h2>Storico Mensile Vendite</h2>
+				<div id="scroll" style="height: 300px; overflow: auto;">
+					<h:dataTable id="storicoTable" var="vend"
+						value="#{venditaBean.storico}" border="1" styleClass="mainTable"
+						headerClass="heading" rowClasses="even,odd"
+						rendered="#{not empty venditaBean.storico}"
+						columnClasses="column1,column2,column2,column2,column2">
+						<h:column>
+							<f:facet name="header">
+								<h:commandLink actionListener="#{venditaBean.sortSellTable}">DataVendita
+							<f:ajax render="storicoTable" />
+								</h:commandLink>
+							</f:facet>
+
+							<h:outputText value="#{vend.data}">
+								<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+							</h:outputText>
+
+
+						</h:column>
+						<h:column>
+							<f:facet name="header">Quantita</f:facet>
+		#{vend.quantitaKg} Kg
+		</h:column>
+						<h:column>
+							<f:facet name="header">Incasso </f:facet>
+		#{vend.incasso} €
+		</h:column>
+
+						<h:column>
+							<f:facet name="header">Tipo Miele</f:facet>
+		#{vend.tipoMiele}
+		</h:column>
+						<h:column>
+							<f:facet name="header">Tipo Barattolo</f:facet>
+		#{vend.tipoBarattolo}
+		</h:column>
+					</h:dataTable>
+				</div>
+			</h:panelGroup>
+
+
+		</h:form>
+
+
+
+
+
+
+		<h3>Ricerca vendita</h3>
+		<h:form>
+
+			<div id="ricerca">
+				<h3>Seleziona Modalita di ricerca</h3>
+				<br></br>
+				<h:panelGrid columns="3">
+
+
+					<h:selectOneMenu value="#{ricercaVenditeBean.modoRicerca}"
+						class="menuTendina">
+						<f:selectItems value="#{ricercaVenditeBean.modiRicerca}"
+							var="modo" />
+
+					</h:selectOneMenu>
+					<h:commandButton
+						action="#{ricercaVenditeBean.selezionaModoRicerca}"
+						value="Seleziona" class="button">
+						<f:ajax execute="@form" render="options" onevent="reloadJqueryUI" />
+					</h:commandButton>
+				</h:panelGrid>
+			</div>
+
+
+
+
+			<h:panelGroup id="options">
+				<h:panelGrid columns="3">
+					<h:selectOneMenu value="#{ricercaVenditeBean.meseRicerca}"
+						rendered="#{ricercaVenditeBean.mese}" styleClass="menuTendina">
+						<f:selectItems value="#{ricercaVenditeBean.mesiAnno}" var="mese"
+							itemLabel="#{mese}" itemValue="#{mese}"></f:selectItems>
+					</h:selectOneMenu>
+					<h:inputText id="dataRic" class="date"
+						value="#{ricercaVenditeBean.giornoRicerca}"
+						rendered="#{ricercaVenditeBean.giorno}" required="true" requiredMessage="Seleziona Una data" converterMessage="Inserisci una data Valida">
+						<f:convertDateTime pattern="MM/dd/yy" />
+						<f:validator validatorId="dateValidator"/>
+						<f:ajax event="change" render="dataRicErr"/>
+						<f:ajax event="blur" render="dataRicErr"/>
+						</h:inputText>
+					<h:message id="dataRicErr" for="dataRic"/>
+					<h:selectOneMenu value="#{ricercaVenditeBean.annoRicerca}"
+						rendered="#{ricercaVenditeBean.anno}" styleClass="menuTendina">
+						<f:selectItems value="#{ricercaVenditeBean.years}" var="anno"
+							itemLabel="#{anno}" itemValue="#{anno}" />
+					</h:selectOneMenu>
+					<h:commandButton action="#{ricercaVenditeBean.ricerca}"
+						value="Ricerca"
+						rendered="#{ricercaVenditeBean.giorno || ricercaVenditeBean.mese || ricercaVenditeBean.anno}"
+						styleClass="button">
+						<f:ajax execute="@form" render="searchTable" />
+					</h:commandButton>
+				</h:panelGrid>
+			</h:panelGroup>
+
+			<h:panelGroup id="searchTable">
+				<div id="scroll" style="height: 300px; overflow: auto;">
+					<h:dataTable id="searchResultTable"
+						value="#{ricercaVenditeBean.risultatoRicerca}" var="vend"
+						border="1" styleClass="mainTable" headerClass="heading"
+						rowClasses="even,odd"
+						rendered="#{not empty ricercaVenditeBean.risultatoRicerca}"
+						columnClasses="column1,column2,column2,column2,column2">
+
+						<h:column>
+							<f:facet name="header">Data Vendita</f:facet>
+							<h:outputText value="#{vend.data}">
+								<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Quantita</f:facet>
+						#{vend.quantitaKg} Kg
+					</h:column>
+						<h:column>
+							<f:facet name="header">Incasso </f:facet>
+						#{vend.incasso} €
+					</h:column>
+
+						<h:column>
+							<f:facet name="header">Tipo Miele</f:facet>
+						#{vend.tipoMiele}
+					</h:column>
+						<h:column>
+							<f:facet name="header">Tipo Barattolo</f:facet>
+						#{vend.tipoBarattolo}
+					</h:column>
+
+					</h:dataTable>
+				</div>
+
+				<h:outputText value="Nessun risultato trovato!" styleClass="error"
+					rendered="#{empty ricercaVenditeBean.risultatoRicerca and (ricercaVenditeBean.giorno || ricercaVenditeBean.mese || ricercaVenditeBean.anno)}" />
+
+
+
+			</h:panelGroup>
+
+		</h:form>
+
+
+		<h3>Statistiche</h3>
+		<h:panelGroup id="grafico" layout="block">
+
+
+
+			<p:chart type="line" model="#{graficoVenditeBean.lm}"
+				style="height:300px;" />
+
+			<h3 align="left">Altre statistiche</h3>
+			<ul>
+				<li><b>Incasso totale: </b> <h:outputText
+						value="#{graficoVenditeBean.incassoTotale}" /></li>
+				<li><b>Quantità totale venduta (Kg): </b> <h:outputText
+						value="#{graficoVenditeBean.quantitaTotale}" /></li>
+				<li><b>Miglior mese: </b> <h:outputText
+						value="#{graficoVenditeBean.bestMonth}" /></li>
+			</ul>
+
+		</h:panelGroup>
+
+
+	</fieldset>
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

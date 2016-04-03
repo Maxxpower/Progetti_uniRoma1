@@ -5,14 +5,74 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
+	<h:outputStylesheet library="css" name="styles.css" />
+		<script src="./jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+	<script src="./jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 
-<p:chart type="line" model="#{graficoVenditeBean.lm}"/>
+	<h:form>
+		<p:dataTable id="storicoTable" var="ven" value="#{venditaBean.storico}"
+			scrollable="true" scrollHeight="300" rendered="#{not empty venditaBean.storico}" editable="true">
+			<p:column headerText="Data Vendita" footerText="Data Vendita" >
+				<h:outputText value="#{vend.data}">
+					<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+				</h:outputText>
+				<h:inputText value="#{vend.data}"/>
+			</p:column>
+			<p:column headerText="Quantita (Kg)" footerText="Quantita (Kg)">
+				<h:outputText value="#{ven.quantitaKg}" />
+			</p:column>
+			<p:column headerText="Incasso" footerText="Incasso">
+				<h:outputText value="#{ven.incasso}" />
+			</p:column>
+			<p:column headerText="Varietà Miele" footerText="Varietà Miele">
+				<h:outputText value="#{ven.tipoMiele}" />
+			</p:column>
+			<p:column headerText="Tipo Confezione" footerText="Tipo Confezione">
+				<h:outputText value="#{ven.tipoBarattolo}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<h:dataTable id="storicoTable" var="vend"
+		value="#{venditaBean.storico}" border="1" styleClass="mainTable"
+		headerClass="heading" rowClasses="even,odd"
+		rendered="#{not empty venditaBean.storico}">
+		<h:column>
+			<f:facet name="header">Data vendita</f:facet>
+
+			<h:outputText value="#{vend.data}">
+				<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+			</h:outputText>
 
 
-</h:body>	
-	
-	
-	
-	
-	
-	</html>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Quantita (Kg)</f:facet>
+		#{vend.quantitaKg}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Incasso (€)</f:facet>
+		#{vend.incasso}
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Tipo Miele</f:facet>
+		#{vend.tipoMiele}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Tipo Barattolo</f:facet>
+		#{vend.tipoBarattolo}
+		</h:column>
+	</h:dataTable>
+
+
+
+
+
+</h:body>
+
+
+
+
+
+</html>
