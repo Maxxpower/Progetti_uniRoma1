@@ -7,71 +7,8 @@
 <h:head>
 	<meta charset="ISO-8859-1"></meta>
 	<title>HivesManager</title>
-	<link href="./jquery-ui/jquery-ui.css" rel="stylesheet" />
-	<style>
-body {
-	font: 62.5% "Trebuchet MS", sans-serif;
-	margin: 50px;
-}
-
-.demoHeaders {
-	margin-top: 2em;
-}
-
-#dialog-link {
-	padding: .4em 1em .4em 20px;
-	text-decoration: none;
-	position: relative;
-}
-
-#dialog-link span.ui-icon {
-	margin: 0 5px 0 0;
-	position: absolute;
-	left: .2em;
-	top: 50%;
-	margin-top: -8px;
-}
-
-#icons {
-	margin: 0;
-	padding: 0;
-}
-
-#icons li {
-	margin: 2px;
-	position: relative;
-	padding: 4px 0;
-	cursor: pointer;
-	float: left;
-	list-style: none;
-}
-
-#icons span.ui-icon {
-	float: left;
-	margin: 0 4px;
-}
-
-.fakewindowcontain .ui-widget-overlay {
-	position: absolute;
-}
-
-.ui-menu {
-	width: 200px;
-}
-
-.ui-widget-header {
-	padding: 0.2em;
-}
-
-select {
-	width: 200px;
-}
-</style>
 
 
-	<script type="text/javascript" src="./scripts/utils.js" />
-	<script src="./jquery-ui/external/jquery/jquery.js"></script>
-	<script src="./jquery-ui/jquery-ui.js"></script>
 </h:head>
 <h:body>
 
@@ -84,12 +21,13 @@ select {
 				<div>
 					<h:form id="uploadForm" enctype="multipart/form-data">
 						<h:panelGrid columns="3">
-							<h:inputFile id="xmlUpload" value="#{hiveBean.xmlFile}"
-								required="true" requiredMessage="Seleziona un file!">
+							<h:inputFile class="button" id="xmlUpload"
+								value="#{hiveBean.xmlFile}" required="true"
+								requiredMessage="Seleziona un file!">
 								<f:validator validatorId="fileValidator" />
 							</h:inputFile>
 							<h:message id="xmlInErr" for="xmlUpload" styleClass="error" />
-							<h:commandButton value="Carica documento"
+							<h:commandButton class="button" value="Carica documento"
 								action="#{hiveBean.uploadRecord}">
 								<f:ajax execute="@form" render="@all" />
 							</h:commandButton>
@@ -109,14 +47,18 @@ select {
 				<h3>Tabella Storico</h3>
 				<div>
 					<h:panelGroup id="storicoArnie" layout="block">
-						<h:form id="tableForm">
+						<h:form>
 							<h:dataTable id="tableArnie" value="#{hiveBean.storicoArnie}"
 								var="hive" border="1" styleClass="mainTable"
-								headerClass="heading" rowClasses="even"
+								headerClass="heading" rowClasses="even2,odd2"
 								columnClasses="column3,column2,column2,column2,column2">
 
 								<h:column>
-									<f:facet name="header">N. Arnia</f:facet>
+								<f:facet name="header"><h:commandLink actionListener="#{hiveBean.sortHiveTable}"
+										style="color:white;">N.Arnia
+									<f:ajax render=":storicoArnie" onevent="reloadJqueryUI" />
+									</h:commandLink></f:facet>
+									
 									<h:outputText id="NomeArnia" value="#{hive.name}" />
 								</h:column>
 
@@ -125,37 +67,129 @@ select {
 									<f:facet name="header">Ultimo Controllo</f:facet>
 									<h:outputText id="dataControllo" value="#{hive.checked_at}"
 										styleClass="#{hive.getDateColorClass(hive.checked_at)}"
-										rendered="#{not hive.editable}">
+										rendered="#{!hive.editable}">
 										<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
 									</h:outputText>
-									<h:inputText value="#{hive.checked_at}" class="date"
-										rendered="#{hive.editable}" />
+									<h:panelGroup rendered="#{hive.editable}">
+										<h:outputText value="Data controllo"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="dCon" value="#{hive.checked_at}"
+											rendered="#{hive.editable}" class="date">
 
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="dConError" />
+										</h:inputText>
+										<br />
+										<h:message id="dConError" for="dCon" styleClass="error" />
+									</h:panelGroup>
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Controllo Regina</f:facet>
 									<h:outputText id="controlloRegina"
-										value="#{hive.queen_bee_checked_at}"
-										styleClass="#{hive.getDateColorClass(hive.queen_bee_checked_at)}">
+										value="#{not empty hive.queen_bee_checked_at ? hive.queen_bee_checked_at : 'Controllo non registrato'}"
+										styleClass="#{hive.getDateColorClass(hive.queen_bee_checked_at)}"
+										rendered="#{!hive.editable}">
 										<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
 									</h:outputText>
-									<p:tooltip id="tooltipRegina" for="controlloRegina">
-										<li><b>Colore ape regina:</b> <h:outputText
+									<h:panelGroup rendered="#{hive.editable}">
+										<h:outputText value="Data controllo"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="qCheck" value="#{hive.queen_bee_checked_at}"
+											rendered="#{hive.editable}" class="date">
+
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="qCheckErr" />
+										</h:inputText>
+										<br />
+										<h:message id="qCheckErr" for="qCheck" styleClass="error" />
+										<br />
+
+										<h:outputText value="Colore ape regina"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:selectOneMenu value="#{hive.queen_bee_color}"
+											rendered="#{hive.editable}" class="menuTendina">
+											<f:selectItems value="#{hiveBean.queenColors}" var="col"
+												itemLabel="#{col}" itemValue="#{col}" />
+										</h:selectOneMenu>
+										<br />
+
+										<h:outputText value="Salute ape Regina"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="setQhealth"
+											value="#{hive.queen_bee_goodness}"
+											rendered="#{hive.editable}" />
+
+									</h:panelGroup>
+									<p:tooltip id="tooltipRegina" for="controlloRegina"
+										rendered="#{!hive.editable}">
+										<li><b>Colore ape regina: </b> <h:outputText
 												value="#{not empty hive.queen_bee_color ? hive.queen_bee_color : 'Regina non colorata!'}"
-												styleClass="#{not empty hive.queen_bee_color ? 'WHITE_DATE' : 'TOO_OLD_DATE'}" /></li>
-										<li><b>Salute ape regina:</b> <h:outputText
+												style="background-color:#{hive.queenBeeColorClass()}" /></li>
+										<li><b>Salute ape regina: </b> <h:outputText
 												value="#{hive.queen_bee_goodness}" /></li>
+										<li><b>Stato cellette reali: </b> <h:outputText
+												value="#{not empty hive.royal_cells_status ? hive.royal_cells_status : 'Dato non registrato'}" /></li>
+										<li><b>Stato covata: </b> <h:outputText
+												value="#{not empty hive.brood_state ? hive.brood_state : 'Dato non registrato'}" /></li>
 									</p:tooltip>
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Controllo varroa</f:facet>
 									<h:outputText id="controlloVarroa"
-										value="#{hive.varroa_checked_at}">
+										value="#{hive.varroa_checked_at}" rendered="#{!hive.editable}"
+										styleClass="#{hive.getDateColorClass(hive.varroa_checked_at)}">
 										<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
 									</h:outputText>
-									<p:tooltip id="tooltipVarroa" for="controlloVarroa">
+									<h:outputText value="Data controllo"
+										rendered="#{hive.editable}" />
+
+									<h:panelGroup rendered="#{hive.editable}">
+										<br />
+										<h:inputText id="varroaIn" value="#{hive.varroa_checked_at}"
+											rendered="#{hive.editable}" class="date">
+
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="varroaInerr" />
+										</h:inputText>
+
+										<br />
+										<h:message for="varroaIn" id="varroaInerr" styleClass="error" />
+										<br />
+
+										<h:outputText value="Controllo vassoio"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="trayCheckIn" value="#{hive.tray_checked_at}"
+											rendered="#{hive.editable}" class="date">
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="trayCheckErr" />
+										</h:inputText>
+
+										<br />
+										<h:message for="trayCheckIn" id="trayCheckErr"
+											styleClass="error" />
+										<br />
+
+										<h:outputText value="Stato Varroa" rendered="#{hive.editable}" />
+										<br />
+										<h:selectOneMenu value="#{hive.varroa_status}"
+											rendered="#{hive.editable}" class="menuTendina">
+											<f:selectItems value="#{hiveBean.varroaSatuses}" var="stato"
+												itemValue="#{stato}" itemLabel="#{stato}" />
+										</h:selectOneMenu>
+									</h:panelGroup>
+									<p:tooltip id="tooltipVarroa" for="controlloVarroa"
+										rendered="#{! hive.editable}">
 										<li><b>Stato varroa: </b> <h:outputText
 												value="#{hive.varroa_status}"
 												styleClass="#{hive.varroaStateColorClass()}" /></li>
@@ -172,64 +206,115 @@ select {
 									<f:facet name="header">Aiuto invernale</f:facet>
 									<h:outputText id="winterCheck"
 										value="#{hive.candy_supplied_at}"
-										styleClass="#{hive.getDateColorClass(hive.candy_supplied_at)}">
+										styleClass="#{hive.getDateColorClass(hive.candy_supplied_at)}"
+										rendered="#{!hive.editable}">
 										<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
 									</h:outputText>
+									<h:outputText value="Data aggiunta candito"
+										rendered="#{hive.editable}" />
+
+									<h:panelGroup rendered="#{hive.editable}">
+										<br />
+										<h:inputText id="candyIn" value="#{hive.candy_supplied_at}"
+											rendered="#{hive.editable}" class="date">
+
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="candyErr" />
+										</h:inputText>
+
+										<br />
+										<h:message for="candyIn" id="candyErr" styleClass="error" />
+										<br />
 
 
-									<p:tooltip id="tooltipWinter" for="winterCheck">
+										<h:outputText value="Data controllo sciroppo1:"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="s1In" value="#{hive.syrup1_supplied_at}"
+											rendered="#{hive.editable}" class="date">
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="s1Err" />
+										</h:inputText>
+
+										<br />
+										<h:message for="s1In" id="s1Err" styleClass="error" />
+										<br />
+										<h:outputText value="Data controllo sciroppo2:"
+											rendered="#{hive.editable}" />
+										<br />
+										<h:inputText id="s2In" value="#{hive.syrup2_supplied_at}"
+											rendered="#{hive.editable}" class="date">
+											<f:convertDateTime pattern="dd/MM/yy" />
+											<f:validator validatorId="dateValidator" />
+											<f:ajax event="change" render="s2Err" />
+										</h:inputText>
+									</h:panelGroup>
+
+									<br />
+									<h:message for="s2In" id="s2Err" styleClass="error" />
+									<br />
+
+									<p:tooltip id="tooltipWinter" for="winterCheck"
+										rendered="#{!hive.editable}">
 										<li><b>Controllo sciroppo 1: </b> <h:outputText
-												value="#{hive.syrup1_supplied_at}"
+												value="#{not empty hive.syrup1_supplied_at ? hive.syrup1_supplied_at : 'Dato non registrato'}"
 												styleClass="#{hive.getDateColorClass(hive.syrup1_supplied_at)}">
 												<f:convertDateTime dateStyle="full" timeZone="CET"
 													type="date" />
 											</h:outputText></li>
 										<li><b>Controllo sciroppo 2: </b> <h:outputText
-												value="#{hive.syrup2_supplied_at}"
+												value="#{not empty hive.syrup2_supplied_at ? hive.syrup2_supplied_at : 'Dato non registrato'}"
 												styleClass="#{hive.getDateColorClass(hive.syrup2_supplied_at)}">
 												<f:convertDateTime dateStyle="full" timeZone="CET"
 													type="date" />
 											</h:outputText></li>
-										<li><b>Controllo candito:</b> <h:outputText
-												value="#{hive.candy_supplied_at}"
-												styleClass="#{hive.getDateColorClass(hive.candy_supplied_at)}">
-												<f:convertDateTime dateStyle="full" timeZone="CET"
-													type="date" />
-											</h:outputText></li>
+
 									</p:tooltip>
 
 								</h:column>
 
 								<h:column>
+
 									<f:facet name="header">Produzione miele</f:facet>
 									<h:outputText value="#{hive.honey_production_qty}" />
 								</h:column>
 
 								<h:column>
+
 									<f:facet name="header">Modifica</f:facet>
-									<h:commandButton id="editB" value="Modifica"
-										action="#{hiveBean.setEditableRecord(hive)}"
-										rendered="#{not hive.editable}">
-										<f:ajax execute="@form" render=" :storicoArnie"
-											onevent="reloadJqueryUI" />
-									</h:commandButton>
+									<h:panelGrid columns="2">
+										<h:commandButton class="button" id="editB" value="Modifica"
+											action="#{hiveBean.setEditableRecord(hive)}"
+											rendered="#{not hive.editable}">
+											<f:ajax execute="@form" render=" :storicoArnie"
+												onevent="reloadJqueryUI" />
+										</h:commandButton>
 
 
-									<h:commandButton id="confirm" value="Applica"
-										action="#{hiveBean.editRecordInPlace(hive)}"
-										rendered="#{hive.editable}">
-										<f:ajax execute="@form" render=" :storicoArnie"
-											onevent="reloadJqueryUI" />
-									</h:commandButton>
+										<h:commandButton class="button" id="confirm" value="Applica"
+											action="#{hiveBean.editRecordInPlace(hive)}"
+											rendered="#{hive.editable}">
+											<f:ajax execute="@form" render=" :storicoArnie"
+												onevent="reloadJqueryUI" />
+										</h:commandButton>
 
+										<h:commandButton class="button" id="cancel" value="Annulla"
+											action="#{hiveBean.cancelEdit(hive)}"
+											rendered="#{hive.editable}">
+											<f:ajax execute="@form" render=" :storicoArnie"
+												onevent="reloadJqueryUI" />
+										</h:commandButton>
+									</h:panelGrid>
 								</h:column>
 							</h:dataTable>
 						</h:form>
 					</h:panelGroup>
 
 				</div>
-				<h3>Grafico</h3>
-				<div>bla</div>
+<!-- 				<h3>Programma controlli</h3>
+				<div>bla</div> -->
 
 			</fieldset>
 		</ui:define>

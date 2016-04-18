@@ -1,25 +1,27 @@
 package beans;
-import javax.faces.bean.ManagedBean;
-import javax.annotation.PostConstruct;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
+
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.CategoryAxis;
-import org.primefaces.model.chart.LineChartModel;
 import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.chart.LineChartSeries;
+import org.primefaces.model.chart.LineChartModel;
 
 @ManagedBean
 public class GraficoVenditeBean {
 
 	private LineChartModel lm;
 	private double incassoTotale = 0.0;
-	private double quantitaTotale =0.0;
+	private double quantitaTotale = 0.0;
+
 	public double getQuantitaTotale() {
 		return quantitaTotale;
 	}
@@ -29,11 +31,12 @@ public class GraficoVenditeBean {
 	}
 
 	private String bestMonth;
-	private Map<Integer, String> months = new HashMap<Integer, String>();
-	
+	private Map<Integer, String> months = new TreeMap<Integer, String>();
 
 	@PostConstruct
 	public void init() {
+
+		System.out.println("PostConstruct: GraficoVendite");
 		months.put(1, "Gennaio");
 		months.put(2, "Febbraio");
 		months.put(3, "Marzo");
@@ -47,9 +50,9 @@ public class GraficoVenditeBean {
 		months.put(11, "Novembre");
 		months.put(12, "Dicembre");
 		createLineModel();
-		this.incassoTotale=calcolaIncassoTotale();
-		this.bestMonth=calcolaMigliorMese();
-		this.quantitaTotale=calcolaQuantitaVenduto();
+		this.incassoTotale = calcolaIncassoTotale();
+		this.bestMonth = calcolaMigliorMese();
+		this.quantitaTotale = calcolaQuantitaVenduto();
 
 	}
 
@@ -77,16 +80,16 @@ public class GraficoVenditeBean {
 		Axis yAxis = lm.getAxis(AxisType.Y);
 		yAxis.setMin("0");
 		yAxis.setLabel("Incassi(€)");
-		//TODO correggi il formato 
+		// TODO correggi il formato
 		yAxis.setTickFormat("%d");
 		lm.getAxes().put(AxisType.X, new CategoryAxis("Mesi"));
 
 	}
 
 	private double calcolaIncassoTotale() {
-		
-		double incasso=0.0;
-		
+
+		double incasso = 0.0;
+
 		VenditeManager vm = new VenditeManager();
 		List<Vendita> incassiMensili = vm.selectByHoneyType();
 
@@ -110,7 +113,7 @@ public class GraficoVenditeBean {
 
 			if (v.getIncasso() > maximum) {
 				maximum = v.getIncasso();
-				month=months.get(v.getMonthAsInteger());
+				month = months.get(v.getMonthAsInteger());
 			}
 
 		}
@@ -118,27 +121,21 @@ public class GraficoVenditeBean {
 		return month;
 
 	}
-	
-	private double calcolaQuantitaVenduto(){
-		
+
+	private double calcolaQuantitaVenduto() {
+
 		VenditeManager vm = new VenditeManager();
-		List<Vendita> vendite= vm.selectAll();
-		double qt=0.0;
-		
-		for(Vendita v : vendite){
-			
-			qt+=v.getQuantitaKg();
-			
-			
-			
-			
+		List<Vendita> vendite = vm.selectAll();
+		double qt = 0.0;
+
+		for (Vendita v : vendite) {
+
+			qt += v.getQuantitaKg();
+
 		}
-		
-		
-		
+
 		return Math.round(qt);
-		
-		
+
 	}
 
 	private LineChartModel inizializzaGrafico() {
@@ -148,6 +145,19 @@ public class GraficoVenditeBean {
 		VenditeManager vm = new VenditeManager();
 		List<Vendita> incassiMensili = vm.selectByHoneyType();
 
+		// Ordino la lista degli incassi per mese in modo da avere un grafico lineare ordinato
+
+		Collections.sort(incassiMensili, new Comparator<Vendita>(
+
+		) {
+
+			@Override
+			public int compare(Vendita o1, Vendita o2) {
+
+				return o1.getMonthAsInteger().compareTo(o2.getMonthAsInteger());
+			}
+		});
+
 		LineChartModel lcm = new LineChartModel();
 
 		ChartSeries millefiori = new ChartSeries("Millefiori");
@@ -156,8 +166,6 @@ public class GraficoVenditeBean {
 		ChartSeries castagno = new ChartSeries("Castagno");
 
 		for (Vendita v : incassiMensili) {
-
-			// setup delle statistiche extra
 
 			if (v.getTipoMiele().equalsIgnoreCase(castagno.getLabel())) {
 
@@ -185,7 +193,7 @@ public class GraficoVenditeBean {
 
 		}
 
-		//TODO Verifica che le serie siano riempiete di dati
+		// TODO Verifica che le serie siano riempiete di dati
 		lcm.addSeries(acacia);
 		lcm.addSeries(castagno);
 		lcm.addSeries(millefiori);

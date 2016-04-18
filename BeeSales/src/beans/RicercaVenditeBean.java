@@ -163,4 +163,6 @@ public class RicercaVenditeBean {
 		return (null);
 	}
 
+	
+	
 }

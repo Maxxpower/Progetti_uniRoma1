@@ -8,21 +8,15 @@ package beans.jpa;
  */
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.concurrent.TimeUnit;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
-import org.joda.time.Instant;
-import org.joda.time.Interval;
-
-import utilities.DateUtils;
 
 /**
  * The Hive class is an entity bean which references to the table Hives.
@@ -38,9 +32,11 @@ public class Hive implements Serializable {
 	@Column(name = "name")
 	private String name;
 	@Column(name = "checked_at")
-	private Timestamp checked_at;
+	@Temporal(TemporalType.DATE)
+	private Date checked_at;
 	@Column(name = "queen_bee_checked_at")
-	private Timestamp queen_bee_checked_at;
+	@Temporal(TemporalType.DATE)
+	private Date queen_bee_checked_at;
 	@Column(name = "queen_bee_color")
 	private String queen_bee_color;
 	@Column(name = "queen_bee_goodness")
@@ -54,21 +50,28 @@ public class Hive implements Serializable {
 	@Column(name = "royal_cells_status")
 	private String royal_cells_status;
 	@Column(name = "block_blood_start_date")
-	private Timestamp block_blood_start_date;
+	@Temporal(TemporalType.DATE)
+	private Date block_blood_start_date;
 	@Column(name = "block_blood_end_date")
-	private Timestamp block_blood_end_date;
+	@Temporal(TemporalType.DATE)
+	private Date block_blood_end_date;
 	@Column(name = "varroa_checked_at")
-	private Timestamp varroa_checked_at;
+	@Temporal(TemporalType.DATE)
+	private Date varroa_checked_at;
 	@Column(name = "varroa_status")
 	private String varroa_status;
 	@Column(name = "tray_checked_at")
-	private Timestamp tray_checked_at;
+	@Temporal(TemporalType.DATE)
+	private Date tray_checked_at;
 	@Column(name = "syrup1_supplied_at")
-	private Timestamp syrup1_supplied_at;
+	@Temporal(TemporalType.DATE)
+	private Date syrup1_supplied_at;
 	@Column(name = "syrup2_supplied_at")
-	private Timestamp syrup2_supplied_at;
+	@Temporal(TemporalType.DATE)
+	private Date syrup2_supplied_at;
 	@Column(name = "candy_supplied_at")
-	private Timestamp candy_supplied_at;
+	@Temporal(TemporalType.DATE)
+	private Date candy_supplied_at;
 	@Column(name = "candy_qty")
 	private Double candy_qty;
 	@Column(name = "honey_production_type")
@@ -77,11 +80,9 @@ public class Hive implements Serializable {
 	private Double honey_production_qty;
 	@Column(name = "qty_frame_number")
 	private Integer qty_frame_number;
-	
+
 	private boolean editable;
-	
-	
-	
+
 	public boolean isEditable() {
 		return editable;
 	}
@@ -98,19 +99,19 @@ public class Hive implements Serializable {
 		this.name = name;
 	}
 
-	public Timestamp getChecked_at() {
+	public Date getChecked_at() {
 		return checked_at;
 	}
 
-	public void setChecked_at(Timestamp checked_at) {
+	public void setChecked_at(Date checked_at) {
 		this.checked_at = checked_at;
 	}
 
-	public Timestamp getQueen_bee_checked_at() {
+	public Date getQueen_bee_checked_at() {
 		return queen_bee_checked_at;
 	}
 
-	public void setQueen_bee_checked_at(Timestamp queen_bee_checked_at) {
+	public void setQueen_bee_checked_at(Date queen_bee_checked_at) {
 		this.queen_bee_checked_at = queen_bee_checked_at;
 	}
 
@@ -162,27 +163,27 @@ public class Hive implements Serializable {
 		this.royal_cells_status = royal_cells_status;
 	}
 
-	public Timestamp getBlock_blood_start_date() {
+	public Date getBlock_blood_start_date() {
 		return block_blood_start_date;
 	}
 
-	public void setBlock_blood_start_date(Timestamp block_blood_start_date) {
+	public void setBlock_blood_start_date(Date block_blood_start_date) {
 		this.block_blood_start_date = block_blood_start_date;
 	}
 
-	public Timestamp getBlock_blood_end_date() {
+	public Date getBlock_blood_end_date() {
 		return block_blood_end_date;
 	}
 
-	public void setBlock_blood_end_date(Timestamp block_blood_end_date) {
+	public void setBlock_blood_end_date(Date block_blood_end_date) {
 		this.block_blood_end_date = block_blood_end_date;
 	}
 
-	public Timestamp getVarroa_checked_at() {
+	public Date getVarroa_checked_at() {
 		return varroa_checked_at;
 	}
 
-	public void setVarroa_checked_at(Timestamp varroa_checked_at) {
+	public void setVarroa_checked_at(Date varroa_checked_at) {
 		this.varroa_checked_at = varroa_checked_at;
 	}
 
@@ -194,35 +195,35 @@ public class Hive implements Serializable {
 		this.varroa_status = varroa_status;
 	}
 
-	public Timestamp getTray_checked_at() {
+	public Date getTray_checked_at() {
 		return tray_checked_at;
 	}
 
-	public void setTray_checked_at(Timestamp tray_checked_at) {
+	public void setTray_checked_at(Date tray_checked_at) {
 		this.tray_checked_at = tray_checked_at;
 	}
 
-	public Timestamp getSyrup1_supplied_at() {
+	public Date getSyrup1_supplied_at() {
 		return syrup1_supplied_at;
 	}
 
-	public void setSyrup1_supplied_at(Timestamp syrup1_supplied_at) {
+	public void setSyrup1_supplied_at(Date syrup1_supplied_at) {
 		this.syrup1_supplied_at = syrup1_supplied_at;
 	}
 
-	public Timestamp getSyrup2_supplied_at() {
+	public Date getSyrup2_supplied_at() {
 		return syrup2_supplied_at;
 	}
 
-	public void setSyrup2_supplied_at(Timestamp syrup2_supplied_at) {
+	public void setSyrup2_supplied_at(Date syrup2_supplied_at) {
 		this.syrup2_supplied_at = syrup2_supplied_at;
 	}
 
-	public Timestamp getCandy_supplied_at() {
+	public Date getCandy_supplied_at() {
 		return candy_supplied_at;
 	}
 
-	public void setCandy_supplied_at(Timestamp candy_supplied_at) {
+	public void setCandy_supplied_at(Date candy_supplied_at) {
 		this.candy_supplied_at = candy_supplied_at;
 	}
 
@@ -272,24 +273,20 @@ public class Hive implements Serializable {
 				+ qty_frame_number + "]";
 	}
 
-	
-	
-	public String editHive(){
-		
+	public String editHive() {
+
 		setEditable(true);
 		return null;
-		
-		
-		
+
 	}
-	
+
 	// these methods are for getting table cells colors based on inserted data.
 
-	public String getDateColorClass(Timestamp t) {
+	public String getDateColorClass(Date date) {
 
-		if (t != null) {
+		if (date != null) {
 			DateTime today = new DateTime();
-			DateTime givenDate = new DateTime(t.getTime());
+			DateTime givenDate = new DateTime(date.getTime());
 
 			// difference in days with JodaTime library
 			Days d = Days.daysBetween(givenDate, today);
@@ -324,41 +321,107 @@ public class Hive implements Serializable {
 
 	public String varroaStateColorClass() {
 
-		if(varroa_status!=null){
-		switch (varroa_status) {
+		if (varroa_status != null) {
+			switch (varroa_status) {
 
-		case "Assente": {
+			case "Assente": {
 
-			return "OK_DATE";
+				return "OK_DATE";
 
-		}
-		case "Scarsa": {
+			}
+			case "Scarsa": {
 
-			return "OK_DATE";
+				return "OK_DATE";
 
-		}
-		case "Media": {
+			}
+			case "Media": {
 
-			return "OLD_DATE";
+				return "OLD_DATE";
 
-		}
-		case "Alta": {
+			}
+			case "Alta": {
 
-			return "TOO_OLD";
+				return "TOO_OLD_DATE";
 
-		}
-		default: {
+			}
+			default: {
+
+				return "WHITE_DATE";
+			}
+
+			}
+
+		} else {
 
 			return "WHITE_DATE";
 		}
+	}
+
+	public String queenBeeColorClass() {
+
+		if (queen_bee_color != null) {
+
+			switch (queen_bee_color) {
+
+			case "Azzurro": {
+
+				return "#33ccff";
+			}
+
+			case "Bianco": {
+
+				return "white";
+
+			}
+
+			case "Giallo": {
+
+				return "#ffff99";
+
+			}
+
+			case "Verde": {
+
+				return "#66ff99";
+
+			}
+
+			case "Rosso": {
+
+				return "#ff5050";
+
+			}
+
+			default: {
+
+				return "white";
+
+			}
+
+			}
+
+		} else {
+
+			return "white";
 
 		}
 
-		}else{
-			
-			
-			return "WHITE_DATE";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+
+		if (o instanceof Hive) {
+
+			Hive h = (Hive) o;
+			return name.equals(h.name);
+
+		} else {
+
+			return false;
+
 		}
+
 	}
 
 }

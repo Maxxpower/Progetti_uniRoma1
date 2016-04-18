@@ -6,66 +6,108 @@
 <h:head></h:head>
 <h:body>
 	<h:outputStylesheet library="css" name="styles.css" />
-		<script src="./jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-	<script src="./jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-
-	<h:form>
-		<p:dataTable id="storicoTable" var="ven" value="#{venditaBean.storico}"
-			scrollable="true" scrollHeight="300" rendered="#{not empty venditaBean.storico}" editable="true">
-			<p:column headerText="Data Vendita" footerText="Data Vendita" >
-				<h:outputText value="#{vend.data}">
-					<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
-				</h:outputText>
-				<h:inputText value="#{vend.data}"/>
-			</p:column>
-			<p:column headerText="Quantita (Kg)" footerText="Quantita (Kg)">
-				<h:outputText value="#{ven.quantitaKg}" />
-			</p:column>
-			<p:column headerText="Incasso" footerText="Incasso">
-				<h:outputText value="#{ven.incasso}" />
-			</p:column>
-			<p:column headerText="Varietà Miele" footerText="Varietà Miele">
-				<h:outputText value="#{ven.tipoMiele}" />
-			</p:column>
-			<p:column headerText="Tipo Confezione" footerText="Tipo Confezione">
-				<h:outputText value="#{ven.tipoBarattolo}" />
-			</p:column>
-		</p:dataTable>
-	</h:form>
-
-	<h:dataTable id="storicoTable" var="vend"
-		value="#{venditaBean.storico}" border="1" styleClass="mainTable"
-		headerClass="heading" rowClasses="even,odd"
-		rendered="#{not empty venditaBean.storico}">
-		<h:column>
-			<f:facet name="header">Data vendita</f:facet>
-
-			<h:outputText value="#{vend.data}">
-				<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
-			</h:outputText>
+	<h:panelGroup id="table">
+		<h:form>
+			<h:dataTable value="#{tableBean.records}" var="hive" border="1">
+				<h:column>
+					<f:facet name="header">N. Arnia</f:facet>
+					<h:outputText id="NomeArnia" value="#{hive.name}"
+						rendered="#{!hive.editable}" />
+					<h:inputText id="InArnia" value="#{hive.name}"
+						rendered="#{hive.editable}" />
+				</h:column>
 
 
-		</h:column>
-		<h:column>
-			<f:facet name="header">Quantita (Kg)</f:facet>
-		#{vend.quantitaKg}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Incasso (€)</f:facet>
-		#{vend.incasso}
-		</h:column>
+				<h:column>
+					<f:facet name="header">Ultimo Controllo</f:facet>
+					<h:outputText id="dataControllo" value="#{hive.checked_at}"
+						styleClass="#{hive.getDateColorClass(hive.checked_at)}">
+						<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+					</h:outputText>
 
-		<h:column>
-			<f:facet name="header">Tipo Miele</f:facet>
-		#{vend.tipoMiele}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Tipo Barattolo</f:facet>
-		#{vend.tipoBarattolo}
-		</h:column>
-	</h:dataTable>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Controllo Regina</f:facet>
+					<h:outputText id="controlloRegina"
+						value="#{hive.queen_bee_checked_at}"
+						styleClass="#{hive.getDateColorClass(hive.queen_bee_checked_at)}">
+						<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+					</h:outputText>
+					<p:tooltip id="tooltipRegina" for="controlloRegina">
+						<li><b>Colore ape regina:</b> <h:outputText
+								value="#{not empty hive.queen_bee_color ? hive.queen_bee_color : 'Regina non colorata!'}"
+								styleClass="#{not empty hive.queen_bee_color ? 'WHITE_DATE' : 'TOO_OLD_DATE'}" /></li>
+						<li><b>Salute ape regina:</b> <h:outputText
+								value="#{hive.queen_bee_goodness}" /></li>
+					</p:tooltip>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Controllo varroa</f:facet>
+					<h:outputText id="controlloVarroa"
+						value="#{hive.varroa_checked_at}">
+						<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+					</h:outputText>
+					<p:tooltip id="tooltipVarroa" for="controlloVarroa">
+						<li><b>Stato varroa: </b> <h:outputText
+								value="#{hive.varroa_status}"
+								styleClass="#{hive.varroaStateColorClass()}" /></li>
+						<li><b>Controllo vassoio: </b> <h:outputText
+								value="#{hive.tray_checked_at}"
+								styleClass="#{hive.getDateColorClass(hive.tray_checked_at)}">
+								<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+							</h:outputText></li>
+					</p:tooltip>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Aiuto invernale</f:facet>
+					<h:outputText id="winterCheck" value="#{hive.candy_supplied_at}"
+						styleClass="#{hive.getDateColorClass(hive.candy_supplied_at)}">
+						<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+					</h:outputText>
 
 
+					<p:tooltip id="tooltipWinter" for="winterCheck">
+						<li><b>Controllo sciroppo 1: </b> <h:outputText
+								value="#{hive.syrup1_supplied_at}"
+								styleClass="#{hive.getDateColorClass(hive.syrup1_supplied_at)}">
+								<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+							</h:outputText></li>
+						<li><b>Controllo sciroppo 2: </b> <h:outputText
+								value="#{hive.syrup2_supplied_at}"
+								styleClass="#{hive.getDateColorClass(hive.syrup2_supplied_at)}">
+								<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+							</h:outputText></li>
+						<li><b>Controllo candito:</b> <h:outputText
+								value="#{hive.candy_supplied_at}"
+								styleClass="#{hive.getDateColorClass(hive.candy_supplied_at)}">
+								<f:convertDateTime dateStyle="full" timeZone="CET" type="date" />
+							</h:outputText></li>
+					</p:tooltip>
+
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Produzione miele</f:facet>
+					<h:outputText value="#{hive.honey_production_qty}" />
+				</h:column>
+				<h:column>
+					<h:commandButton value="edit"
+						action="#{tableBean.setEditable(hive)}"
+						rendered="#{!hive.editable}">
+						<f:ajax execute="@form" render=" :table" />
+					</h:commandButton>
+					<h:commandButton value="edit"
+						action="#{tableBean.testAction(hive)}" rendered="#{hive.editable}">
+						<f:ajax execute="@form" render=" :table" />
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+	</h:panelGroup>
 
 
 

@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <body>
-	    <ui:composition>
-	
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<body>
+	<ui:composition>
+
 		<fieldset>
-		<!--This is the header with logo  -->
-		<h1 align="left" class="logo">
-			<h:graphicImage library="images" name="logo-miele.png" height="123" />
+			<!--This is the header with logo  -->
+			<h1 align="left" class="logo">
+				<h:graphicImage library="images" name="logo-miele.png" height="123" />
 			</h1>
 			<div align="right" class="absolute">
-			<ul id="menu" >
-				<li class="ui-widget-header">Naviga</li>
-				<li><a href="hives.jsf">HivesManager</a></li>
-				<li><a href="sales.jsf">BeeSales</a></li>
-			</ul>
+				<ul id="menu" align="right">
+					<li class="ui-widget-header">Naviga</li>
+					<li><a href="hives.xhtml">Gestione alveari</a></li>
+					<li><a href="sales.xhtml">Gestione vendite</a></li>
+				</ul>
+				<h:form>
+					<h:panelGroup rendered="#{not empty loginBean.userName}">
+						<fieldset class="loginPanel" align="right">
+							<table>
+								<td align="left"><h:outputText
+										value="Hai effettuato l'accesso come: #{loginBean.userName}" /></td>
+								<td><h:commandButton action="#{loginBean.logoutUser}"
+										class="button" value="Esci" /></td>
+							</table>
+						</fieldset>
+					</h:panelGroup>
+				</h:form>
 			</div>
-	</fieldset>
-				
-	    </ui:composition>
-    </body>
+		</fieldset>
+
+	</ui:composition>
+</body>
 </html>

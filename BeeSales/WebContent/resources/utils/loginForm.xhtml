@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+<composite:interface>
+
+	<composite:attribute name="value" type="beans.LoginBean"
+		required="true" />
+	<composite:attribute name="userPrompt" required="false"
+		default="Inserisci il tuo UserName:" />
+	<composite:attribute name="pwdPrompt" required="false"
+		default="Inserisci la tua Password:" />
+
+</composite:interface>
+
+<composite:implementation>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:form>
+	<fieldset class="formPanel">
+		<h:panelGrid id="loginPane">
+		
+			<h:messages styleClass="error"/>
+			<br />
+			<h:outputText value="#{cc.attrs.userPrompt}" styleClass="fonts"/>
+			<h:inputText id="usr" value="#{cc.attrs.value.userName}"
+				required="true" requiredMessage="Inserisci uno username non vuoto">
+				<f:ajax event="blur" render="usrErr" />
+			</h:inputText>
+			<h:message for="usr" id="usrErr" styleClass="error"/>
+			<br />
+			<h:outputText value="#{cc.attrs.pwdPrompt}" styleClass="fonts"/>
+			<h:inputSecret id="pwd" value="#{cc.attrs.value.passwd}"
+				required="true" requiredMessage="Inserisci una password non vuota">
+				<f:ajax event="blur" render="pwdErr" />
+			</h:inputSecret>
+			<h:message for="pwd" id="pwdErr" styleClass="error"/>
+			<h:commandButton class="button" value="Accedi" action="#{cc.attrs.value.loginUser}">
+				<f:ajax execute="@form" render="loginPane" />
+			</h:commandButton>
+			
+		</h:panelGrid>
+		</fieldset>
+	</h:form>
+</composite:implementation>
+
+
+
+
+
+</html>

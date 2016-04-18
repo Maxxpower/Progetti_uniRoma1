@@ -3,14 +3,18 @@ package beans;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 import javax.servlet.http.Part;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -26,18 +30,33 @@ import beans.jpa.Hive;
 import beans.jpa.HiveManager;
 
 @ManagedBean
+@ViewScoped
 
 public class HiveBean implements Serializable{
 
 	private Part xmlFile;
-	private List<Hive> storicoArnie;
+	private ArrayList<Hive> storicoArnie;
+	private boolean ascendingOrder = true;
 
 	@PostConstruct
 	public void init() {
-		System.out.println("PostConstruct richiamato!!");
+		System.out.println("postconstruct from HiveBean");
+		storicoArnie= new ArrayList<Hive>();
 		HiveManager hm = new HiveManager();
-		storicoArnie = hm.getAll();
+		List<Hive> readOnlyHiveList=hm.getAll();
+		storicoArnie.addAll(readOnlyHiveList);
 
+	}
+	
+	public final String[] queenColors={"Azzurro","Bianco","Giallo","Rosso","Verde"};
+	public final String[] varroaSatuses={"Assente","Scarsa","Media","Alta"};
+
+	public String[] getVarroaSatuses() {
+		return varroaSatuses;
+	}
+
+	public String[] getQueenColors() {
+		return queenColors;
 	}
 
 	public List<Hive> getStoricoArnie() {
@@ -45,7 +64,7 @@ public class HiveBean implements Serializable{
 	}
 
 	public void setStoricoArnie(List<Hive> storicoArnie) {
-		this.storicoArnie = storicoArnie;
+		this.storicoArnie = (ArrayList<Hive>) storicoArnie;
 	}
 
 	public Part getXmlFile() {
@@ -69,7 +88,9 @@ public class HiveBean implements Serializable{
 
 			parseInsertRecord(in);
 			HiveManager hm = new HiveManager();
-			storicoArnie = hm.getAll();
+			storicoArnie.clear();
+			List<Hive> readOnlyHiveList=hm.getAll();
+			storicoArnie.addAll(readOnlyHiveList);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -89,20 +110,35 @@ public class HiveBean implements Serializable{
 
 	}
 
+	//Action Controllers for information editing
+	
 	public String setEditableRecord(Hive h) {
-
+		System.out.println("chiamato EDIT");
 		h.setEditable(true);
 		return null;
 
 	}
 
 	public String editRecordInPlace(Hive h) {
-
-		System.out.println("Test " + h);
+		System.out.println("chiamato CONFIRM Update del DB");
+		h.setEditable(false);
+		HiveManager hm = new HiveManager();
+		hm.updateHive(h);
 		return null;
 
 	}
-
+	
+	public String cancelEdit(Hive h){
+		
+		h.setEditable(false);
+		return null;
+		
+		
+		
+	}
+	
+	
+	//Private method for pasing xml input from upstream
 	private void parseInsertRecord(InputStream fileRecord)
 			throws ParserConfigurationException, SAXException, IOException, ParseException {
 
@@ -126,7 +162,7 @@ public class HiveBean implements Serializable{
 				// LOGGER.info("hive id : " + name + " check date:" +
 				// checked_at);
 				hive.setName(name);
-				hive.setChecked_at(new Timestamp(sdf.parse(checked_at).getTime()));
+				hive.setChecked_at(new Date(sdf.parse(checked_at).getTime()));
 
 			}
 		}
@@ -140,7 +176,7 @@ public class HiveBean implements Serializable{
 				Element eElement = (Element) queenNode;
 				String check_date = eElement.getAttribute("check_date");
 				if (check_date != null && !check_date.equals("null")) {
-					hive.setQueen_bee_checked_at(new Timestamp(sdf.parse(check_date).getTime()));
+					hive.setQueen_bee_checked_at(new Date(sdf.parse(check_date).getTime()));
 					// LOGGER.info("queen bee check date:" + check_date);
 				}
 				String color = eElement.getAttribute("color");
@@ -190,13 +226,13 @@ public class HiveBean implements Serializable{
 				}
 				String block_blood_start_date = eElement.getAttribute("block_blood_start_date");
 				if (block_blood_start_date != null && !block_blood_start_date.equals("null")) {
-					hive.setBlock_blood_start_date(new Timestamp(sdf.parse(block_blood_start_date).getTime()));
+					hive.setBlock_blood_start_date(new Date(sdf.parse(block_blood_start_date).getTime()));
 					// LOGGER.info("winter block_blood_start_date:" +
 					// block_blood_start_date);
 				}
 				String block_blood_end_date = eElement.getAttribute("block_blood_end_date");
 				if (block_blood_end_date != null && !block_blood_end_date.equals("null")) {
-					hive.setBlock_blood_end_date(new Timestamp(sdf.parse(block_blood_end_date).getTime()));
+					hive.setBlock_blood_end_date(new Date(sdf.parse(block_blood_end_date).getTime()));
 					// LOGGER.info("winter block_blood_end_date:" +
 					// block_blood_end_date);
 				}
@@ -214,7 +250,7 @@ public class HiveBean implements Serializable{
 				Element eElement = (Element) varroaParentNode;
 				String check_date = eElement.getAttribute("check_date");
 				if (check_date != null && !check_date.equals("null")) {
-					hive.setVarroa_checked_at(new Timestamp(sdf.parse(check_date).getTime()));
+					hive.setVarroa_checked_at(new Date(sdf.parse(check_date).getTime()));
 					// LOGGER.info("varroa check_date:" + check_date);
 				}
 				String status = eElement.getAttribute("status");
@@ -224,7 +260,7 @@ public class HiveBean implements Serializable{
 				}
 				String trayCheckDate = eElement.getAttribute("tray_check_date");
 				if (trayCheckDate != null && !trayCheckDate.equals("null")) {
-					hive.setTray_checked_at(new Timestamp(sdf.parse(trayCheckDate).getTime()));
+					hive.setTray_checked_at(new Date(sdf.parse(trayCheckDate).getTime()));
 					// LOGGER.info("tray Check Date:" + trayCheckDate);
 				}
 			}
@@ -241,7 +277,7 @@ public class HiveBean implements Serializable{
 				Element eElement = (Element) syrup1ParentNode;
 				String check_date = eElement.getAttribute("check_date");
 				if (check_date != null && !check_date.equals("null")) {
-					hive.setSyrup1_supplied_at(new Timestamp(sdf.parse(check_date).getTime()));
+					hive.setSyrup1_supplied_at(new Date(sdf.parse(check_date).getTime()));
 					// LOGGER.info("syrup1 supplied at :" + check_date);
 				}
 
@@ -259,7 +295,7 @@ public class HiveBean implements Serializable{
 				Element eElement = (Element) syrup2ParentNode;
 				String check_date = eElement.getAttribute("check_date");
 				if (check_date != null && !check_date.equals("null")) {
-					hive.setSyrup2_supplied_at(new Timestamp(sdf.parse(check_date).getTime()));
+					hive.setSyrup2_supplied_at(new Date(sdf.parse(check_date).getTime()));
 					// LOGGER.info("syrup2 supplied at :" + check_date);
 				}
 
@@ -277,7 +313,7 @@ public class HiveBean implements Serializable{
 				Element eElement = (Element) candyParentNode;
 				String check_date = eElement.getAttribute("check_date");
 				if (check_date != null && !check_date.equals("null")) {
-					hive.setCandy_supplied_at(new Timestamp(sdf.parse(check_date).getTime()));
+					hive.setCandy_supplied_at(new Date(sdf.parse(check_date).getTime()));
 					// LOGGER.info("candy supplied at :" + check_date);
 				}
 
@@ -330,10 +366,62 @@ public class HiveBean implements Serializable{
 
 			}
 		}
-
+		
+		//TODO: ricontrolla questa logica
+		
 		HiveManager manager = new HiveManager();
-		manager.insert(hive);
+		
+		if(storicoArnie.contains(hive)){
+			
+			manager.updateHive(hive);
+			
+			
+		}else{
+			
+			manager.insert(hive);
+			
+		}
 
+		
+		
+
+	}
+	
+	//ActionListener for sorting
+	//Da ricontrollare
+	public String sortHiveTable(ActionEvent e){
+		
+		if (ascendingOrder) {
+
+			Collections.sort(storicoArnie, new Comparator<Hive>() {
+
+				@Override
+				public int compare(Hive o1, Hive o2) {
+					// TODO Auto-generated method stub
+					return o1.getName().compareTo(o2.getName());
+				}
+			});
+
+
+			ascendingOrder = false;
+
+		} else {
+			
+			Collections.sort(storicoArnie, new Comparator<Hive>() {
+
+				@Override
+				public int compare(Hive o1, Hive o2) {
+					// TODO Auto-generated method stub
+					return o2.getName().compareTo(o1.getName());
+				}
+			});
+			
+
+			ascendingOrder = true;
+		}
+		
+		
+		return null;
 	}
 
 }

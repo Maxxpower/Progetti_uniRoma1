@@ -1,4 +1,5 @@
 package beans;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,9 +13,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -24,7 +27,7 @@ import javax.sql.DataSource;
 import utilities.DateUtils;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class VenditaBean {
 
 	private String tipoBarattolo;
@@ -32,20 +35,20 @@ public class VenditaBean {
 	private double quantitaKg;
 	private Date data;
 	private String tipoMiele;
-	//lista delle opzioni da visualizzare per le variet� di miele disponibili
-	private List<String> tipiMiele=Arrays.asList("Millefiori","Castagno","Acacia","Primifiori");
-	//lista delle vendite pregresse
-	
+	// lista delle opzioni da visualizzare per le variet� di miele disponibili
+	private List<String> tipiMiele = Arrays.asList("Millefiori", "Castagno", "Acacia", "Primifiori");
+	// lista delle vendite pregresse
+
 	private List<Vendita> storico;
-	private boolean ascendingOrder=true;
-	
-	public VenditaBean(){
-		
-		VenditeManager vm=new VenditeManager();
-		storico=vm.selectByMonth(DateUtils.currentMonth());
-		
+	private boolean ascendingOrder = true;
+
+	@PostConstruct
+	public void init() {
+		//System.out.println("postconstruct Called on venditaBeaN");
+		VenditeManager vm = new VenditeManager();
+		storico = vm.selectByMonth(DateUtils.currentMonth());
+
 	}
-	
 
 	public List<Vendita> getStorico() {
 		return storico;
@@ -89,9 +92,7 @@ public class VenditaBean {
 
 	public double getQuantitaKg() {
 		return quantitaKg;
-		
-		
-		
+
 	}
 
 	public void setQuantitaKg(double quantitaKg) {
@@ -109,80 +110,76 @@ public class VenditaBean {
 	// ActionController
 
 	public String inserisciVendita() {
-		
-		Vendita v=new Vendita();
+
+		Vendita v = new Vendita();
 		v.setData(data);
 		v.setIncasso(incasso);
 		v.setQuantitaKg(quantitaKg);
 		v.setTipoBarattolo(tipoBarattolo);
 		v.setTipoMiele(tipoMiele);
-		//manager del DB con inserimento
-		VenditeManager vm= new VenditeManager();
+		// manager del DB con inserimento
+		VenditeManager vm = new VenditeManager();
 		vm.insertVendita(v);
-		
-		//aggiorno la tabella andrò a mostrare ad inserire solo le vendite dell'ultimo mese
-		storico=vm.selectByMonth(DateUtils.currentMonth());
-		
-		//l'ultima vendita va in cima
+
+		// aggiorno la tabella andrò a mostrare ad inserire solo le vendite
+		// dell'ultimo mese
+		storico = vm.selectByMonth(DateUtils.currentMonth());
+
+		// l'ultima vendita va in cima
 		Collections.sort(storico, new Comparator<Vendita>() {
 
 			@Override
-				public int compare(Vendita o1, Vendita o2) {
-					
-					return o2.getData().compareTo(o1.getData());
-				}
-				
-				
-			
+			public int compare(Vendita o1, Vendita o2) {
+
+				return o2.getData().compareTo(o1.getData());
+			}
+
 		});
-		
-		
-		return(null);
+
+		return (null);
 
 	}
-	
-	
-	//action listener sulla colonna Data dello storico
-	public void sortSellTable(ActionEvent e){
-		
-	if(ascendingOrder){
-			
+
+	// action listener sulla colonna Data dello storico
+	public void sortSellTable(ActionEvent e) {
+
+		if (ascendingOrder) {
+
 			Collections.sort(storico, new Comparator<Vendita>() {
 
-			@Override
+				@Override
 				public int compare(Vendita o1, Vendita o2) {
-					
+
 					return o1.getData().compareTo(o2.getData());
 				}
-				
-				
-			
-		});
-			
-			ascendingOrder=false;
-			
-		}else{
-			
-			Collections.sort(storico, new Comparator<Vendita>() {
-				
-			@Override
-			public int compare(Vendita o1, Vendita o2) {
-				
-				return o2.getData().compareTo(o1.getData());
-				}
-				
-				
+
 			});
-			
-		ascendingOrder=true;
+
+			ascendingOrder = false;
+
+		} else {
+
+			Collections.sort(storico, new Comparator<Vendita>() {
+
+				@Override
+				public int compare(Vendita o1, Vendita o2) {
+
+					return o2.getData().compareTo(o1.getData());
+				}
+
+			});
+
+			ascendingOrder = true;
 		}
-		
-	
-		
 
 	}
-	
-	
-	
-	
+
+	public String deleteRowOnTable(Vendita v) {
+
+		storico.remove(v);
+		VenditeManager vm= new VenditeManager();
+		vm.deleteSellRow(v);
+		return null;
+
+	}
 }

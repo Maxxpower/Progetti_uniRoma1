@@ -19,7 +19,7 @@ public class Vendita {
 	private double quantitaKg;
 	private Date data;
 	private String tipoMiele;
-	private boolean editabile = false;
+	private boolean editabile;
 	private Integer monthAsInteger;
 
 	public Integer getMonthAsInteger() {

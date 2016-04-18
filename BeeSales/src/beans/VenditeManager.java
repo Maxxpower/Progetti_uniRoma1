@@ -1,4 +1,5 @@
 package beans;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -258,7 +259,7 @@ public class VenditeManager {
 	public List<Vendita> selectByDay(Date day) {
 
 		List<Vendita> result = new ArrayList<Vendita>();
-		String query="select * from vendita where data=?::date";
+		String query = "select * from vendita where data=?::date";
 
 		Connection c = null;
 		PreparedStatement ps = null;
@@ -297,8 +298,40 @@ public class VenditeManager {
 			}
 
 		}
-		
+
 		return result;
+
+	}
+
+	public void deleteSellRow(Vendita v) {
+
+		Connection c = null;
+		PreparedStatement ps = null;
+		String query = "delete from vendita where data=?::date and tipoMiele=?::miele and tipoBarattolo=?::barattolo and incasso=?";
+
+		try {
+			c = ds.getConnection();
+			ps = c.prepareStatement(query);
+			ps.setDate(1, new java.sql.Date(v.getData().getTime()));
+			ps.setString(2, v.getTipoMiele().toUpperCase());
+			ps.setString(3, v.getTipoBarattolo().toUpperCase());
+			ps.setDouble(4, v.getIncasso());
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+			try {
+				ps.close();
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
 
 	}
 
