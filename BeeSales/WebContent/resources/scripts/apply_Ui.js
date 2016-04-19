@@ -35,6 +35,8 @@ function reloadJqueryUI() {
 	jQuery(".button").button();
 
 	jQuery('.accordion').accordion();
+	
+	jQuery('.closedAcc').accordion({collapsible: true, active: false });
 
 	jQuery('#menu').menu({
 		items : "> :not(.ui-widget-header)"

@@ -15,6 +15,9 @@
 	<ui:composition template="template/main_template.xhtml">
 
 		<ui:define name="content">
+
+
+
 			<fieldset class="accordion">
 
 				<h3>Inserimento/Upload</h3>
@@ -54,11 +57,13 @@
 								columnClasses="column3,column2,column2,column2,column2">
 
 								<h:column>
-								<f:facet name="header"><h:commandLink actionListener="#{hiveBean.sortHiveTable}"
-										style="color:white;">N.Arnia
+									<f:facet name="header">
+										<h:commandLink actionListener="#{hiveBean.sortHiveTable}"
+											style="color:white;">N.Arnia
 									<f:ajax render=":storicoArnie" onevent="reloadJqueryUI" />
-									</h:commandLink></f:facet>
-									
+										</h:commandLink>
+									</f:facet>
+
 									<h:outputText id="NomeArnia" value="#{hive.name}" />
 								</h:column>
 
@@ -303,7 +308,7 @@
 										<h:commandButton class="button" id="cancel" value="Annulla"
 											action="#{hiveBean.cancelEdit(hive)}"
 											rendered="#{hive.editable}">
-											<f:ajax execute="@form" render=" :storicoArnie"
+											<f:ajax execute="@form" render=" :storicoArnie :schedule"
 												onevent="reloadJqueryUI" />
 										</h:commandButton>
 									</h:panelGrid>
@@ -313,10 +318,20 @@
 					</h:panelGroup>
 
 				</div>
-<!-- 				<h3>Programma controlli</h3>
-				<div>bla</div> -->
+<!-- 				<h3>Programma mensile dei controlli</h3>
+				<div align="center">
+				<h:panelGroup layout="block">
+					<h:form>
+						<p:schedule id="schedule" value="#{scheduleBean.calendario}"
+							widgetVar="pianoControlli" draggable="false" style="width:850px" />
+					</h:form>
+				</h:panelGroup>
+				</div>
+ -->
+
 
 			</fieldset>
+
 		</ui:define>
 	</ui:composition>
 </h:body>
