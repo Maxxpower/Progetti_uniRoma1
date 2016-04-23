@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="ISO-8859-1"></meta>
-	<title>BeeSales</title>
+	<title>Controllo vendite</title>
 	
 </h:head>
 <h:body>
@@ -29,7 +29,7 @@
 								value="#{venditaBean.data}" required="true"
 								requiredMessage="Inserisci una data"
 								converterMessage="L'elemento inserito deve essere una data">
-								<f:convertDateTime pattern="MM/dd/yy" />
+								<f:convertDateTime pattern="dd/MM/yy" />
 								<f:validator validatorId="dateValidator" />
 								<f:ajax event="change" render="dataError" />
 								<f:ajax event="blur" render="dataError" />
@@ -209,7 +209,7 @@
 									rendered="#{ricercaVenditeBean.giorno}" required="true"
 									requiredMessage="Seleziona Una data"
 									converterMessage="Inserisci una data Valida">
-									<f:convertDateTime pattern="MM/dd/yy" />
+									<f:convertDateTime pattern="dd/MM/yy" />
 									<f:validator validatorId="dateValidator" />
 									<f:ajax event="change" render="dataRicErr" />
 									<f:ajax event="blur" render="dataRicErr" />

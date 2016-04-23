@@ -77,6 +77,7 @@ public class GraficoVenditeBean {
 		lm = inizializzaGrafico();
 		lm.setTitle("Vendite Mensili");
 		lm.setLegendPosition("e");
+		lm.setAnimate(true);
 		Axis yAxis = lm.getAxis(AxisType.Y);
 		yAxis.setMin("0");
 		yAxis.setLabel("Incassi(€)");

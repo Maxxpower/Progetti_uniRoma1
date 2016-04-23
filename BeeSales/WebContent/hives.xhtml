@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="ISO-8859-1"></meta>
-	<title>HivesManager</title>
+	<title>Controllo Arnie</title>
 
 
 </h:head>
@@ -20,33 +20,7 @@
 
 			<fieldset class="accordion">
 
-				<h3>Inserimento/Upload</h3>
-				<div>
-					<h:form id="uploadForm" enctype="multipart/form-data">
-						<h:panelGrid columns="3">
-							<h:inputFile class="button" id="xmlUpload"
-								value="#{hiveBean.xmlFile}" required="true"
-								requiredMessage="Seleziona un file!">
-								<f:validator validatorId="fileValidator" />
-							</h:inputFile>
-							<h:message id="xmlInErr" for="xmlUpload" styleClass="error" />
-							<h:commandButton class="button" value="Carica documento"
-								action="#{hiveBean.uploadRecord}">
-								<f:ajax execute="@form" render="@all" />
-							</h:commandButton>
 
-						</h:panelGrid>
-
-
-
-
-					</h:form>
-
-
-
-
-
-				</div>
 				<h3>Tabella Storico</h3>
 				<div>
 					<h:panelGroup id="storicoArnie" layout="block">
@@ -318,10 +292,38 @@
 					</h:panelGroup>
 
 				</div>
- 
 
+				<h3>Inserimento/Upload</h3>
+				<div>
+					<h:form id="uploadForm" enctype="multipart/form-data">
+						<h:panelGrid columns="3">
+							<h:inputFile class="button" id="xmlUpload"
+								value="#{hiveBean.xmlFile}" required="true"
+								requiredMessage="Seleziona un file!">
+								<f:validator validatorId="fileValidator" />
+							</h:inputFile>
+							<h:message id="xmlInErr" for="xmlUpload" styleClass="error" />
+							<h:commandButton class="button" value="Carica documento"
+								action="#{hiveBean.uploadRecord}">
+								<f:ajax execute="@form" render="@all" />
+							</h:commandButton>
+
+						</h:panelGrid>
+
+
+
+
+					</h:form>
+
+
+
+
+
+				</div>
 
 			</fieldset>
+
+
 
 		</ui:define>
 	</ui:composition>
