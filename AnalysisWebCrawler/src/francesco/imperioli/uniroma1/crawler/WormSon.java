@@ -13,6 +13,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import test.francesco.imperioli.uniroma1.crawler.CookiesFinder;
+
 public class WormSon {
 
 	private List<String> links = new LinkedList<String>();
@@ -38,41 +40,35 @@ public class WormSon {
 			Elements thirdPartyTags = htmlDocument.select(cssSelector);
 
 			if (c.response().statusCode() == 200) {
-
 				System.out.println("Trovati:" + linksOnPage.size() + " link");
-
 			}
 			if (!c.response().contentType().contains("text/html")) {
-
 				return false;
-
 			}
 
 			//primo controllo sui cookie nella response
-			cookiesOnpage = c.response().cookies();
-
+			//cookiesOnpage = c.response().cookies();
 			// aggiungo i link trovati sulla pagina alla linklist
 			for (Element l : linksOnPage) {
-
-				links.add(l.absUrl("href"));
-
+				//links.add(l.absUrl("href"));
+				CookiesFinder.findCookiesByUrl(l.absUrl("href"));
+				
+				
+				
 			}
 
-			// aggiungo gli oggetti di interesse trovati sulla pagina alla lista
-			// objectOnPage:
-
-			for (Element obj : thirdPartyTags) {
-				
-				if(obj.tag().equals("img") && obj.attr(cssSelector).contains("cookie")){
-					
-					objectsOnPage.add(obj.toString());
-					
-				}
-				
-
-				
-
-			}
+//			// aggiungo gli oggetti di interesse trovati sulla pagina alla lista
+//			// objectOnPage:
+//			for (Element obj : thirdPartyTags) {
+//				
+//				System.out.println("current obj:" + obj);
+//				
+//				
+//				if(obj.tag().equals("img") && obj.attr(cssSelector).contains("cookie")){
+//					objectsOnPage.add(obj.toString());
+//				}
+//
+//			}
 
 			return true;
 

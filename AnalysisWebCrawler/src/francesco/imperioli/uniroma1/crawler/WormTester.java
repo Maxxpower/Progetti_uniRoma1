@@ -8,12 +8,6 @@ public class WormTester {
 	
 		WormCrawler wc= new WormCrawler();
 		wc.ricerca("http://www.eprice.it", "[src]");
-		
-		
-		
-		
-		
-
 	}
 
 }
