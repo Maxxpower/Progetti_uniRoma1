@@ -7,7 +7,7 @@ public class WormTester {
 	public static void main(String[] args) {
 	
 		WormCrawler wc= new WormCrawler();
-		wc.ricerca("http://www.myprotein.com", "[src]");
+		wc.ricerca("http://gazzetta.it", "[src]");
 	}
 
 }
