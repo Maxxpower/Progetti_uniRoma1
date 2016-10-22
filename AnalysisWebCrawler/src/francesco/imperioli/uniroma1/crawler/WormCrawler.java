@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class WormCrawler {
 
-	private static final int MAX_PAGES = 5;
+	private static final int MAX_PAGES = 100;
 	private Set<String> pagineVisitate = new HashSet<String>();
 	private List<String> pagineDaVisitare = new LinkedList<String>();
 

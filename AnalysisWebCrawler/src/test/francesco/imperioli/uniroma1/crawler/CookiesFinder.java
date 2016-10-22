@@ -20,7 +20,7 @@ public class CookiesFinder {
 				Cookie cookie = cookies[i];
 				System.err.println("{Cookie: " + cookie.getName() + ", Value: " + cookie.getValue() + ", IsPersistent?: "
 						+ cookie.isPersistent() + ", Expiry Date: " + cookie.getExpiryDate() + ", Comment: "
-						+ cookie.getComment() + "}");
+						+ cookie.getComment() + "Domain:" +cookie.getDomain()+"}");
 				//cookie.setValue("My own value");
 			}
 			client.executeMethod(method);
