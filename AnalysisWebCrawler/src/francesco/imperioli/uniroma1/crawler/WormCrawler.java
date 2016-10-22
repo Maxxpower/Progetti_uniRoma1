@@ -28,6 +28,7 @@ public class WormCrawler {
 
 	}
 
+	/*
 	public void ricerca(String url, String cssSelector) {
 
 		while (pagineVisitate.size() < MAX_PAGES) {
@@ -59,6 +60,6 @@ public class WormCrawler {
 
 		}
 
-	}
+	}*/
 
 }
