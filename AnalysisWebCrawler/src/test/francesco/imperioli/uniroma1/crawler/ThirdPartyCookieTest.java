@@ -8,24 +8,27 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class ThirdPartyCookieTest {
 
-	WebDriver driver = null;
+	FirefoxDriver driver = null;
 
 	@Before
 	public void setUp() throws Exception {
-		File file = new File("C:/dev/Selenium/IEDriverServer_Win32_2.48.0/IEDriverServer.exe");
-		System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-		caps.setCapability(
-		    InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-		    true);
+		//File file = new File("/opt/geckodriver");
+//		System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
+//		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
+//		caps.setCapability(
+//		    InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+//		    true);
 		 
 		
-		driver = new InternetExplorerDriver(caps);
+//		driver = new InternetExplorerDriver(caps);
+		//System.setProperty("webdriver.firefox.driver",file.getAbsolutePath());
+		driver= new FirefoxDriver();
 		driver.get("http://www.huffingtonpost.it/");
 		
 		//driver.wait(5000);
@@ -36,7 +39,7 @@ public class ThirdPartyCookieTest {
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
-		driver.close();
+		//driver.close();
 	}
 	
 	@Test
