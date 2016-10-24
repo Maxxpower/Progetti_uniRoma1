@@ -34,11 +34,19 @@ public class ThirdPartyCookieTest {
 		
 //		driver = new InternetExplorerDriver(caps);
 		//System.setProperty("webdriver.firefox.driver",file.getAbsolutePath());
+		
+		//Caricamento dell'estensione, sembrerebbe non servire se l'estensione è installata.
+		
 		//FirefoxProfile fp= new FirefoxProfile();
 		//Path percorsoEstensione=Paths.get("C:\\Users\\Francesco\\Downloads\\get_all_cookies_in_xml.xpi");
 		//File extensionFile=new File(percorsoEstensione.toString());
 		//fp.addExtension(extensionFile);
+		
+		
 		driver= new FirefoxDriver();
+		
+		//Cancello tutti i cookies presenti (anche se non dovrebbero essercene);
+		
 		driver.manage().deleteAllCookies();
 		driver.get("http://www.huffingtonpost.it/");
 		
@@ -61,6 +69,8 @@ public class ThirdPartyCookieTest {
 		
 		//driver.navigate().to("http://www.huffingtonpost.it/");
 		//driver.get("chrome://getallcookies/content/getAllCookies.xul");
+		
+		//apro una nuova finestra e inserisco l'url trigger per l'estensione getAllcookiesXML TODO: verificarne il funzionamento corretto (sembra non funzionare)
 		 WebElement body = driver.findElement(By.tagName("body"));
 		 body.sendKeys(Keys.chord(Keys.CONTROL, "n"));
 		 driver.get("chrome://getallcookies/content/getAllCookies.xul");
