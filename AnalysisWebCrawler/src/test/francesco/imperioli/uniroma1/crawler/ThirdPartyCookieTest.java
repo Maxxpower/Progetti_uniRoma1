@@ -1,14 +1,20 @@
 package test.francesco.imperioli.uniroma1.crawler;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -28,8 +34,15 @@ public class ThirdPartyCookieTest {
 		
 //		driver = new InternetExplorerDriver(caps);
 		//System.setProperty("webdriver.firefox.driver",file.getAbsolutePath());
+		//FirefoxProfile fp= new FirefoxProfile();
+		//Path percorsoEstensione=Paths.get("C:\\Users\\Francesco\\Downloads\\get_all_cookies_in_xml.xpi");
+		//File extensionFile=new File(percorsoEstensione.toString());
+		//fp.addExtension(extensionFile);
 		driver= new FirefoxDriver();
+		driver.manage().deleteAllCookies();
 		driver.get("http://www.huffingtonpost.it/");
+		
+		
 		
 		//driver.wait(5000);
 		//selenium = new WebDriverBackedSelenium(driver, "https://127.0.0.1:8843/bidding/secured/showLogin.action");
@@ -44,6 +57,17 @@ public class ThirdPartyCookieTest {
 	
 	@Test
 	public void getCookiesTest(){
+		//TODO verificare perchè non apre huffingtonpost.it e non aggiorna il file cookie.xml
+		
+		//driver.navigate().to("http://www.huffingtonpost.it/");
+		//driver.get("chrome://getallcookies/content/getAllCookies.xul");
+		 WebElement body = driver.findElement(By.tagName("body"));
+		 body.sendKeys(Keys.chord(Keys.CONTROL, "n"));
+		 driver.get("chrome://getallcookies/content/getAllCookies.xul");
+
+		
+		
+		
 		Set<Cookie> allCookies = driver.manage().getCookies();
 		for(Cookie c : allCookies){
 			System.out.println("---------------");
