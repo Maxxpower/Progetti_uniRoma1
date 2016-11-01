@@ -21,6 +21,7 @@
 	<classpathentry kind="lib" path="extlib/jna-3.3.0.jar"/>
 	<classpathentry kind="lib" path="extlib/selenium-java-2.48.2-srcs.jar"/>
 	<classpathentry kind="lib" path="extlib/selenium-java-2.48.2.jar"/>
+	<classpathentry kind="lib" path="extlib/commons-io-2.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
