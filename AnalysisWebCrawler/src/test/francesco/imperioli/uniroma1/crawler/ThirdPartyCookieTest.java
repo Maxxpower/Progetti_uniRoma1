@@ -1,8 +1,13 @@
 package test.francesco.imperioli.uniroma1.crawler;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
 import java.util.Set;
 
 import org.junit.After;
@@ -11,43 +16,29 @@ import org.junit.Test;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
+
+import francesco.imperioli.uniroma1.it.utils.FileUtils;
 
 public class ThirdPartyCookieTest {
 
 	FirefoxDriver driver = null;
+	File profileFile;
 
 	@Before
 	public void setUp() throws Exception {
-		// File file = new File("/opt/geckodriver");
-		// System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-		// DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-		// caps.setCapability(
-		// InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-		// true);
 
-		// driver = new InternetExplorerDriver(caps);
-		// System.setProperty("webdriver.firefox.driver",file.getAbsolutePath());
+		ProfilesIni profile = new ProfilesIni();
+		FirefoxProfile ffprofile = profile.getProfile("default");
 
-		// Caricamento dell'estensione, sembrerebbe non funzionare, problemi col path?
+		// qui trovo il path del profilo!!finalmente!!!
+		this.profileFile = ffprofile.layoutOnDisk();
+		System.out.println("CARTELLA PROFILO: " + profileFile.getAbsolutePath());
 
-		FirefoxProfile fp = new FirefoxProfile();
-		Path percorsoEstensione = Paths.get("C:\\Users\\Francesco\\Downloads\\get_all_cookies_in_xml.xpi");
-		File extensionFile = new File(percorsoEstensione.toString());
-		fp.addExtension(extensionFile);
-
-
-		driver = new FirefoxDriver();
-
-		// Cancello tutti i cookies presenti (anche se non dovrebbero
-		// essercene);
+		driver = new FirefoxDriver(ffprofile);
 
 		driver.manage().deleteAllCookies();
-		driver.get("http://www.huffingtonpost.it/");
 
-		// driver.wait(5000);
-		// selenium = new WebDriverBackedSelenium(driver,
-		// "https://127.0.0.1:8843/bidding/secured/showLogin.action");
-		// driver.navigate().to("javascript:document.getElementById('overridelink').click()");
 	}
 
 	@After
@@ -57,10 +48,26 @@ public class ThirdPartyCookieTest {
 	}
 
 	@Test
-	public void getCookiesTest() {
-		// TODO verificare perchè non aggiorna il file cookie.xml, firefox a quanto sembra non riesce a caricare l'estensione
+	public void getCookiesTest(String url) {
+		driver.get(url);
 
 		driver.get("chrome://getallcookies/content/getAllCookies.xul");
+
+		// ora vado a copiare il file xml temporaneo in un altro file xml che
+		// poi analizzerò
+
+		String pathOftempXml = profileFile.getAbsolutePath() + "\\cookie.xml";
+		String pathOfXml = "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookiesXml\\" + "hpostit.xml";
+		try {
+
+			Path fileFrom = Paths.get(pathOftempXml);
+			Path fileTo = Paths.get(pathOfXml);
+			Files.copy(fileFrom, fileTo, StandardCopyOption.REPLACE_EXISTING);
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		// wait di 3s per dare tempo a firefox di scrivere sul file
 		try {
@@ -68,15 +75,6 @@ public class ThirdPartyCookieTest {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
-		Set<Cookie> allCookies = driver.manage().getCookies();
-		for (Cookie c : allCookies) {
-			System.out.println("---------------");
-			System.out.println("Domain:" + c.getDomain());
-			System.out.println("Name:" + c.getName());
-			System.out.println("Path:" + c.getPath());
-			System.out.println("Value:" + c.getValue());
 		}
 
 	}
