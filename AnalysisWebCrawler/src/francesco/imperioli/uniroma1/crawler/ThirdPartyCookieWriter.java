@@ -56,7 +56,7 @@ public class ThirdPartyCookieWriter implements Runnable {
 
 		String pathOftempXml = profileFile.getAbsolutePath() + "\\cookie.xml";
 		String[] splittedUrl = url.split("\\.");
-		String pathOfXml = "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookiesXml\\" + splittedUrl[1];// +"_"+System.currentTimeMillis()+"_"+".xml";
+		String pathOfXml = "./result_files\\" + splittedUrl[1];// +"_"+System.currentTimeMillis()+"_"+".xml";
 		File f = new File(pathOfXml);
 		// se non esiste creo la nuova cartella dal dominio
 
