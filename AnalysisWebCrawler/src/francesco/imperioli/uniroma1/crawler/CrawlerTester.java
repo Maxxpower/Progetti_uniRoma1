@@ -18,8 +18,6 @@ import java.util.concurrent.Future;
 
 public class CrawlerTester {
 
-
-
 	public static void main(String[] args) {
 
 		// implementazione multithread del crawler con threadpoolexecutor
@@ -27,11 +25,11 @@ public class CrawlerTester {
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 		ArrayList<String> baseLinks = new ArrayList<String>();
 		ArrayList<Set<String>> linkVisited = new ArrayList<Set<String>>();
-
+		
+		baseLinks.add("http://www.hdblog.it");
 		baseLinks.add("http://www.lastampa.it");
 		baseLinks.add("http://www.hwupgrade.it");
 		baseLinks.add("http://www.wired.it");
-		baseLinks.add("http://www.hdblog.it");
 		baseLinks.add("http://www.gamemag.it");
 		baseLinks.add("http://www.ilmanifesto.info");
 		baseLinks.add("http://www.tuttosport.com");
@@ -51,38 +49,10 @@ public class CrawlerTester {
 		for (int i = 0; i < baseLinks.size(); i++) {
 
 			String currentBase = baseLinks.get(i);
-			 Runnable crawler= new Spider(currentBase);
-			 executor.execute(crawler);
-
-//			try {
-//				Callable<Set<String>> sp = new Spider(currentBase);
-//				Future<Set<String>> crawlerFuture = executor.submit(sp);
-//				linkVisited.add(crawlerFuture.get());
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (ExecutionException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			Runnable crawler = new Spider(currentBase);
+			executor.execute(crawler);
 
 		}
-
-//		ArrayList<String> fileLines = new ArrayList<String>();
-//
-//		for (Set<String> links : linkVisited) {
-//
-//			for (String s : links) {
-//
-//				fileLines.add(s);
-//
-//			}
-//
-//		}
-//		
-//		//scrivo su file
-//		
-//		salvaLinksSuFile("C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\links.txt", fileLines);
 
 	}
 

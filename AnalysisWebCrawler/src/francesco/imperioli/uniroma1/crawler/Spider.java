@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 
 public class Spider implements Runnable, Callable<Set<String>> {
 
-	private static final int MAX_PG = 200;
+	private static final int MAX_PG = 50;
 	private Set<String> visitate = new HashSet<String>();
 	private List<String> daVisitare = new ArrayList<String>();
 	private String startUrl;

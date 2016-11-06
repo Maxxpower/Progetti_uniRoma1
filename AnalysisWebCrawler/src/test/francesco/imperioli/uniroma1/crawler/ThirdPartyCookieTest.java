@@ -48,8 +48,8 @@ public class ThirdPartyCookieTest {
 	}
 
 	@Test
-	public void getCookiesTest(String url) {
-		driver.get(url);
+	public void getCookiesTest() {
+		driver.get("http://hdblog.it");
 
 		driver.get("chrome://getallcookies/content/getAllCookies.xul");
 
@@ -57,7 +57,7 @@ public class ThirdPartyCookieTest {
 		// poi analizzerò
 
 		String pathOftempXml = profileFile.getAbsolutePath() + "\\cookie.xml";
-		String pathOfXml = "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookiesXml\\" + "hpostit.xml";
+		String pathOfXml = "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookiesXml\\" + "hpostit1.xml";
 		try {
 
 			Path fileFrom = Paths.get(pathOftempXml);
@@ -77,6 +77,16 @@ public class ThirdPartyCookieTest {
 			e.printStackTrace();
 		}
 
-	}
+		if (profileFile.exists()) {
+			try {
+				org.apache.commons.io.FileUtils.deleteDirectory(new File(profileFile.getAbsolutePath()));
+				System.out.println("profilo " + profileFile.getAbsolutePath() + " cancellato");
+			} catch (IOException e) {
 
+				e.printStackTrace();
+			}
+
+		}
+
+	}
 }

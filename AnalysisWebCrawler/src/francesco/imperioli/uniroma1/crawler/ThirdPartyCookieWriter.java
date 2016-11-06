@@ -31,13 +31,14 @@ public class ThirdPartyCookieWriter implements Runnable {
 		FirefoxProfile ffprofile = profile.getProfile("default");
 
 
-		// qui trovo il path del profilo!!finalmente!!!
+		// qui trovo il path del profilo
 		this.profileFile = ffprofile.layoutOnDisk();
 		System.out.println("CARTELLA PROFILO: " + profileFile.getAbsolutePath());
 
 
 		driver = new FirefoxDriver(ffprofile);
 
+		//forse è questo che mi crea problemi?
 		driver.manage().deleteAllCookies();
 
 	}
@@ -49,6 +50,8 @@ public class ThirdPartyCookieWriter implements Runnable {
 	public void getCookiesTest() {
 		driver.get(url);
 
+//		System.out.println("COOKIES FOUND" + driver.manage().getCookies());
+		
 		driver.get("chrome://getallcookies/content/getAllCookies.xul");
 
 		// ora vado a copiare il file xml temporaneo in un altro file xml che
@@ -58,6 +61,7 @@ public class ThirdPartyCookieWriter implements Runnable {
 		String[] splittedUrl = url.split("\\.");
 		String pathOfXml = "./result_files\\" + splittedUrl[1];// +"_"+System.currentTimeMillis()+"_"+".xml";
 		File f = new File(pathOfXml);
+		
 		// se non esiste creo la nuova cartella dal dominio
 
 		if (!f.exists()) {
@@ -67,6 +71,8 @@ public class ThirdPartyCookieWriter implements Runnable {
 
 		try {
 
+			//copio l'xml generato dall'estensione getAllCookiesXml 
+			
 			Path fileFrom = Paths.get(pathOftempXml);
 			Path fileTo = Paths
 					.get(pathOfXml + "\\" + splittedUrl[1] + "_" + System.currentTimeMillis() + "_" + ".xml");
@@ -85,12 +91,13 @@ public class ThirdPartyCookieWriter implements Runnable {
 			e.printStackTrace();
 		}
 
+		//cancello i file temporanei creati dal driver firefox
 		if (profileFile.exists()) {
 			try {
 				org.apache.commons.io.FileUtils.deleteDirectory(new File(profileFile.getAbsolutePath()));
 				System.out.println("profilo " + profileFile.getAbsolutePath() + " cancellato");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 

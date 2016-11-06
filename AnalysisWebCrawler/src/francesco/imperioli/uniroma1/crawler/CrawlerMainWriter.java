@@ -19,6 +19,9 @@ public class CrawlerMainWriter {
 
 		Path file = Paths.get(args[0]);
 		try {
+			
+			//implementazione multithread
+			
 			List<String> lineeFile = Files.readAllLines(file);
 			ExecutorService executor = Executors.newFixedThreadPool(1);
 
@@ -35,6 +38,8 @@ public class CrawlerMainWriter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 
 	}
 
