@@ -123,63 +123,56 @@ public class CookieStatsGenerator {
 						//String regExpDomainWithoutDot = cookieDomainHost.substring(1, cookieDomainHost.length()).substring(0, cookieDomainHost.lastIndexOf('.'));
 						
 						
-					
+						//***** creazione reg ex dinamica sulla base del dominio *************
 						String host = cookieDomainHost.substring(0, cookieDomainHost.lastIndexOf('.'));
 						host = host.substring(host.lastIndexOf('.') + ".".length(), host.length());
 						String mainDomainRegExp = "([a-z0-9]+[.])*" + host + "[.]" + domainTLD;
+						//***** fine creazione reg ex dinamica sulla base del dominio ********
+						//poiche la chiave è dinamica la inizializzo qui invece di ripeterla, paradigma DRY.
+						String keyToUpdate = "www." + host + "." +  domainTLD;
 						
 						if (domainTLD.equalsIgnoreCase("it")){
-							String keyToUpdate = "www." + host + ".it";
 							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
+								//verifico se il cookie esiste gia sulla base della regex
 								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
+									//se ho trovato cosa cercavo esco per evitare cicli inutili
 									break;
 								}
 							}
 							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapIT);
 						} else if (domainTLD.equalsIgnoreCase("com")) {
-							String keyToUpdate = "www." + host + ".com";
 							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
 								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
+									//se ho trovato cosa cercavo esco per evitare cicli inutili
 									break;
 								}
 							}
-
 							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapCOM);
 
 						} else if (domainTLD.equalsIgnoreCase("net")) {
-
-							String keyToUpdate = "www." + host + ".net";
 							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
 								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
+									//se ho trovato cosa cercavo esco per evitare cicli inutili
 									break;
 								}
 							}
-
 							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapNET);
-
 						} else {
-
-							String keyToUpdate = "www." + host + "." +  domainTLD;
 							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
 								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
+									//se ho trovato cosa cercavo esco per evitare cicli inutili
 									break;
 								}
 							}
-
 							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapMISC);
-
 						}
 
 						// }
