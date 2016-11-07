@@ -120,6 +120,8 @@ public class CookieStatsGenerator {
 						if (domainTLD.equalsIgnoreCase("it")) {
 
 							String keyToUpdate = cookieDomainHost;
+							
+							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
 
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
 
@@ -135,6 +137,8 @@ public class CookieStatsGenerator {
 
 						} else if (domainTLD.equalsIgnoreCase("com")) {
 
+							
+							
 							String keyToUpdate = cookieDomainHost;
 
 							for (String s : cookieHostOccurrencesMapCOM.keySet()) {
