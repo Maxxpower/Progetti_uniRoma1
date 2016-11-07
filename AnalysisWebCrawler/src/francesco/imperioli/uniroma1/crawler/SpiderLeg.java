@@ -5,6 +5,7 @@
  */
 package francesco.imperioli.uniroma1.crawler;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,15 +25,9 @@ public class SpiderLeg {
 	private static final String userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
 	private List<String> links = new ArrayList<String>();
 	private Document doc;
-	private List<String> selectorList;
 	private List<String> cookieTagsFound = new ArrayList<String>();
 	private String baseUrl;
 
-	public SpiderLeg() {
-
-		initializeSelectorList();
-
-	}
 
 	public boolean crawl(String url) {
 
@@ -60,7 +55,9 @@ public class SpiderLeg {
 			Elements linkDom = htmlDoc.select("a[href]");
 
 			// looking for cookie-setting tags into the DOM
-
+			//leggo i selettori css da un file txt
+			List<String> selectorList=readSelectors();
+			
 			for (String selector : selectorList) {
 
 				Elements cookieTag = htmlDoc.select(selector);
@@ -90,24 +87,20 @@ public class SpiderLeg {
 		return cookieTagsFound;
 	}
 
-	private void initializeSelectorList() {
+	private List<String> readSelectors() {
 
-		this.selectorList = new ArrayList<String>();
-
-		//TODO Work in progress
+		List<String> selectorList=null;
+		String filePath = new File("").getAbsolutePath();
+		Path selectorFilePath=Paths.get(filePath+"\\selectorFiles\\selectors.txt");
+		try {
+			selectorList=Files.readAllLines(selectorFilePath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
-		selectorList.add("a[href*=\"cookie\"]");
-		selectorList.add("img[src*=\"cookie\"]");
-		selectorList.add("form[action*=\"cookie\"]");
-		selectorList.add("script[src*=\"cookie\"]");
-		selectorList.add("script[src*=\"ad\"]");
-		selectorList.add("video[src*=\"cookie\"]");
-		selectorList.add("object[data*=\"cookie\"]");
-		selectorList.add("iframe[style*=\"display:none;\"]");
-		selectorList.add("iframe[id*=\"google_ads_iframe\"]");
-		selectorList.add("iframe[src*=\"cookie\"]");
-		selectorList.add("iframe[id*=\"ads\"]");
+		return selectorList;
 
 	}
 
