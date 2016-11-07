@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,7 +23,43 @@ import francesco.imperioli.uniroma1.utils.FileUtils;
 
 public class CookieStatsGenerator {
 
-	private Map<String, Integer> cookieHostOccurrencesMap = new HashMap<String, Integer>();
+	private Map<String, Integer> cookieHostOccurrencesMapIT = new HashMap<String, Integer>();
+	private Map<String, Integer> cookieHostOccurrencesMapCOM = new HashMap<String, Integer>();
+	private Map<String, Integer> cookieHostOccurrencesMapNET = new HashMap<String, Integer>();
+	private Map<String, Integer> cookieHostOccurrencesMapMISC = new HashMap<String, Integer>();
+
+	public Map<String, Integer> getCookieHostOccurrencesMapIT() {
+		return cookieHostOccurrencesMapIT;
+	}
+
+	public void setCookieHostOccurrencesMapIT(Map<String, Integer> cookieHostOccurrencesMapIT) {
+		this.cookieHostOccurrencesMapIT = cookieHostOccurrencesMapIT;
+	}
+
+	public Map<String, Integer> getCookieHostOccurrencesMapCOM() {
+		return cookieHostOccurrencesMapCOM;
+	}
+
+	public void setCookieHostOccurrencesMapCOM(Map<String, Integer> cookieHostOccurrencesMapCOM) {
+		this.cookieHostOccurrencesMapCOM = cookieHostOccurrencesMapCOM;
+	}
+
+	public Map<String, Integer> getCookieHostOccurrencesMapNET() {
+		return cookieHostOccurrencesMapNET;
+	}
+
+	public void setCookieHostOccurrencesMapNET(Map<String, Integer> cookieHostOccurrencesMapNET) {
+		this.cookieHostOccurrencesMapNET = cookieHostOccurrencesMapNET;
+	}
+
+	public Map<String, Integer> getCookieHostOccurrencesMapMISC() {
+		return cookieHostOccurrencesMapMISC;
+	}
+
+	public void setCookieHostOccurrencesMapMISC(Map<String, Integer> cookieHostOccurrencesMapMISC) {
+		this.cookieHostOccurrencesMapMISC = cookieHostOccurrencesMapMISC;
+	}
+
 	private Map<String, Integer> numberOfCookiesPerSite = new HashMap<String, Integer>();
 
 	public Map<String, Integer> getNumberOfCookiesPerSite() {
@@ -37,14 +74,6 @@ public class CookieStatsGenerator {
 
 		readXmlFiles(directory);
 
-	}
-
-	public Map<String, Integer> getCookieHostOccurrencesMap() {
-		return cookieHostOccurrencesMap;
-	}
-
-	public void setCookieHostOccurrencesMap(Map<String, Integer> cookieHostOccurrencesMap) {
-		this.cookieHostOccurrencesMap = cookieHostOccurrencesMap;
 	}
 
 	private void readXmlFiles(String directory) {
@@ -73,8 +102,85 @@ public class CookieStatsGenerator {
 					if (currentCookieNode.getNodeType() == Node.ELEMENT_NODE) {
 
 						Element cookie = (Element) currentCookieNode;
-						// update sulla mappa delle occorrenze
-						updateOccurrencesMap(cookie.getElementsByTagName("host").item(0).getTextContent());
+						// update sulla mappa delle occorrenze, devo fare alcune
+						// distinzioni in base alla TLD dell'host, in modo da
+						// avere più grafici
+						String cookieDomainHost = cookie.getElementsByTagName("host").item(0).getTextContent();
+
+						// controllo che i cookie siano di terze
+						// parti,attraverso il nome del file escludo i cookie
+						// che non sono cross-domain DA RIVEDERE
+						// if
+						// (!StringUtils.containsIgnoreCase(filename.split("\\.")[0],
+						// cookieDomainHost.split("\\.")[1])) {
+
+						String[] splittedDomainURL = cookieDomainHost.split("\\.");
+						String domainTLD = splittedDomainURL[splittedDomainURL.length - 1];
+
+						if (domainTLD.equalsIgnoreCase("it")) {
+
+							String keyToUpdate = cookieDomainHost;
+
+							for (String s : cookieHostOccurrencesMapIT.keySet()) {
+
+								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
+
+									keyToUpdate = s;
+
+								}
+
+							}
+
+							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapIT);
+
+						} else if (domainTLD.equalsIgnoreCase("com")) {
+
+							String keyToUpdate = cookieDomainHost;
+
+							for (String s : cookieHostOccurrencesMapCOM.keySet()) {
+
+								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
+
+									keyToUpdate = s;
+
+								}
+							}
+
+							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapCOM);
+
+						} else if (domainTLD.equalsIgnoreCase("net")) {
+
+							String keyToUpdate = cookieDomainHost;
+
+							for (String s : cookieHostOccurrencesMapNET.keySet()) {
+
+								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
+
+									keyToUpdate = s;
+
+								}
+							}
+
+							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapNET);
+
+						} else {
+
+							String keyToUpdate = cookieDomainHost;
+
+							for (String s : cookieHostOccurrencesMapNET.keySet()) {
+
+								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
+
+									keyToUpdate = s;
+
+								}
+							}
+
+							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapMISC);
+
+						}
+
+						// }
 
 					}
 
@@ -95,16 +201,16 @@ public class CookieStatsGenerator {
 
 	}
 
-	private void updateOccurrencesMap(String key) {
+	private void updateOccurrencesMap(String key, Map<String, Integer> map) {
 
-		if (!cookieHostOccurrencesMap.containsKey(key)) {
+		if (!map.containsKey(key)) {
 
-			cookieHostOccurrencesMap.put(key, 1);
+			map.put(key, 1);
 
 		} else {
 
-			Integer currentValue = cookieHostOccurrencesMap.get(key);
-			cookieHostOccurrencesMap.put(key, currentValue + 1);
+			Integer currentValue = map.get(key);
+			map.put(key, currentValue + 1);
 
 		}
 
