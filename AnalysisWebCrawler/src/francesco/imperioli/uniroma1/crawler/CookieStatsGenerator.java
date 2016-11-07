@@ -2,6 +2,7 @@ package francesco.imperioli.uniroma1.crawler;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,39 +115,38 @@ public class CookieStatsGenerator {
 						// (!StringUtils.containsIgnoreCase(filename.split("\\.")[0],
 						// cookieDomainHost.split("\\.")[1])) {
 
-						String[] splittedDomainURL = cookieDomainHost.split("\\.");
-						String domainTLD = splittedDomainURL[splittedDomainURL.length - 1];
-
-						if (domainTLD.equalsIgnoreCase("it")) {
-
-							String keyToUpdate = cookieDomainHost;
-							
+						//String[] splittedDomainURL = cookieDomainHost.split("\\.");
+						//String domainTLD = splittedDomainURL[splittedDomainURL.length - 1];
+						
+						String domainTLD = cookieDomainHost.substring(cookieDomainHost.lastIndexOf('.') + ".".length(), cookieDomainHost.length()); //it, com, net etc
+						//esempio {www.alvolante.it=3, immagini.alvolante.it=1}
+						//String regExpDomainWithoutDot = cookieDomainHost.substring(1, cookieDomainHost.length()).substring(0, cookieDomainHost.lastIndexOf('.'));
+						
+						
+					
+						String host = cookieDomainHost.substring(0, cookieDomainHost.lastIndexOf('.'));
+						host = host.substring(host.lastIndexOf('.') + ".".length(), host.length());
+						String mainDomainRegExp = "([a-z0-9]+[.])*" + host + "[.]" + domainTLD;
+						
+						if (domainTLD.equalsIgnoreCase("it")){
+							String keyToUpdate = "www." + host + ".it";
 							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
 
 							for (String s : cookieHostOccurrencesMapIT.keySet()) {
-
-								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
-
+								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
-
+									break;
 								}
-
 							}
-
 							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapIT);
-
 						} else if (domainTLD.equalsIgnoreCase("com")) {
+							String keyToUpdate = "www." + host + ".com";
+							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
 
-							
-							
-							String keyToUpdate = cookieDomainHost;
-
-							for (String s : cookieHostOccurrencesMapCOM.keySet()) {
-
-								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
-
+							for (String s : cookieHostOccurrencesMapIT.keySet()) {
+								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
-
+									break;
 								}
 							}
 
@@ -154,14 +154,13 @@ public class CookieStatsGenerator {
 
 						} else if (domainTLD.equalsIgnoreCase("net")) {
 
-							String keyToUpdate = cookieDomainHost;
+							String keyToUpdate = "www." + host + ".net";
+							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
 
-							for (String s : cookieHostOccurrencesMapNET.keySet()) {
-
-								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
-
+							for (String s : cookieHostOccurrencesMapIT.keySet()) {
+								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
-
+									break;
 								}
 							}
 
@@ -169,14 +168,13 @@ public class CookieStatsGenerator {
 
 						} else {
 
-							String keyToUpdate = cookieDomainHost;
+							String keyToUpdate = "www." + host + "." +  domainTLD;
+							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
 
-							for (String s : cookieHostOccurrencesMapNET.keySet()) {
-
-								if (StringUtils.containsIgnoreCase(s, cookieDomainHost)) {
-
+							for (String s : cookieHostOccurrencesMapIT.keySet()) {
+								if(s.matches(mainDomainRegExp)){
 									keyToUpdate = s;
-
+									break;
 								}
 							}
 
