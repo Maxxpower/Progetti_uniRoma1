@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2016, Francesco Imperioli. All rights reserved.
+ * Francesco Imperioli PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * 
+ */
 package test.francesco.imperioli.uniroma1.crawler;
 
 import org.apache.commons.httpclient.Cookie;
