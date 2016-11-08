@@ -28,9 +28,15 @@ public class CookieStatsGenerator {
 	private Map<String, Integer> cookieHostOccurrencesMapCOM = new HashMap<String, Integer>();
 	private Map<String, Integer> cookieHostOccurrencesMapNET = new HashMap<String, Integer>();
 	private Map<String, Integer> cookieHostOccurrencesMapMISC = new HashMap<String, Integer>();
+	private Map<String, Integer> cookieOriginMap = new HashMap<String, Integer>();
+	private Map<String, Integer> numberOfCookiesPerSite = new HashMap<String, Integer>();
 
 	public Map<String, Integer> getCookieHostOccurrencesMapIT() {
 		return cookieHostOccurrencesMapIT;
+	}
+
+	public Map<String, Integer> getCookieOriginMap() {
+		return cookieOriginMap;
 	}
 
 	public void setCookieHostOccurrencesMapIT(Map<String, Integer> cookieHostOccurrencesMapIT) {
@@ -60,8 +66,6 @@ public class CookieStatsGenerator {
 	public void setCookieHostOccurrencesMapMISC(Map<String, Integer> cookieHostOccurrencesMapMISC) {
 		this.cookieHostOccurrencesMapMISC = cookieHostOccurrencesMapMISC;
 	}
-
-	private Map<String, Integer> numberOfCookiesPerSite = new HashMap<String, Integer>();
 
 	public Map<String, Integer> getNumberOfCookiesPerSite() {
 		return numberOfCookiesPerSite;
@@ -103,79 +107,107 @@ public class CookieStatsGenerator {
 					if (currentCookieNode.getNodeType() == Node.ELEMENT_NODE) {
 
 						Element cookie = (Element) currentCookieNode;
+
+						// la fonte del cookie, il dominio di provenienza è
+						// registrato nel campo host del nostro xml
+						String cookieDomainHost = cookie.getElementsByTagName("host").item(0).getTextContent();
+
 						// update sulla mappa delle occorrenze, devo fare alcune
 						// distinzioni in base alla TLD dell'host, in modo da
 						// avere più grafici
-						String cookieDomainHost = cookie.getElementsByTagName("host").item(0).getTextContent();
+						String domainTLD = cookieDomainHost.substring(cookieDomainHost.lastIndexOf('.') + ".".length(),
+								cookieDomainHost.length()); // it, com, net etc
+						// esempio {www.alvolante.it=3, immagini.alvolante.it=1}
+						// String regExpDomainWithoutDot =
+						// cookieDomainHost.substring(1,
+						// cookieDomainHost.length()).substring(0,
+						// cookieDomainHost.lastIndexOf('.'));
 
-						// controllo che i cookie siano di terze
-						// parti,attraverso il nome del file escludo i cookie
-						// che non sono cross-domain DA RIVEDERE
-						// if
-						// (!StringUtils.containsIgnoreCase(filename.split("\\.")[0],
-						// cookieDomainHost.split("\\.")[1])) {
-
-						//String[] splittedDomainURL = cookieDomainHost.split("\\.");
-						//String domainTLD = splittedDomainURL[splittedDomainURL.length - 1];
-						
-						String domainTLD = cookieDomainHost.substring(cookieDomainHost.lastIndexOf('.') + ".".length(), cookieDomainHost.length()); //it, com, net etc
-						//esempio {www.alvolante.it=3, immagini.alvolante.it=1}
-						//String regExpDomainWithoutDot = cookieDomainHost.substring(1, cookieDomainHost.length()).substring(0, cookieDomainHost.lastIndexOf('.'));
-						
-						
-						//***** creazione reg ex dinamica sulla base del dominio *************
+						// ***** creazione reg ex dinamica sulla base del
+						// dominio *************
 						String host = cookieDomainHost.substring(0, cookieDomainHost.lastIndexOf('.'));
 						host = host.substring(host.lastIndexOf('.') + ".".length(), host.length());
 						String mainDomainRegExp = "([a-z0-9]+[.])*" + host + "[.]" + domainTLD;
-						//***** fine creazione reg ex dinamica sulla base del dominio ********
-						//poiche la chiave è dinamica la inizializzo qui invece di ripeterla, paradigma DRY.
-						String keyToUpdate = "www." + host + "." +  domainTLD;
-						
-						if (domainTLD.equalsIgnoreCase("it")){
-							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-							for (String s : cookieHostOccurrencesMapIT.keySet()) {
-								//verifico se il cookie esiste gia sulla base della regex
-								if(s.matches(mainDomainRegExp)){
-									keyToUpdate = s;
-									//se ho trovato cosa cercavo esco per evitare cicli inutili
-									break;
-								}
-							}
-							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapIT);
-						} else if (domainTLD.equalsIgnoreCase("com")) {
-							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-							for (String s : cookieHostOccurrencesMapIT.keySet()) {
-								if(s.matches(mainDomainRegExp)){
-									keyToUpdate = s;
-									//se ho trovato cosa cercavo esco per evitare cicli inutili
-									break;
-								}
-							}
-							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapCOM);
+						// ***** fine creazione reg ex dinamica sulla base del
+						// dominio ********
+						// poiche la chiave è dinamica la inizializzo qui invece
+						// di ripeterla, paradigma DRY.
+						String keyToUpdate = "www." + host + "." + domainTLD;
 
-						} else if (domainTLD.equalsIgnoreCase("net")) {
-							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-							for (String s : cookieHostOccurrencesMapIT.keySet()) {
-								if(s.matches(mainDomainRegExp)){
-									keyToUpdate = s;
-									//se ho trovato cosa cercavo esco per evitare cicli inutili
-									break;
+						// controllo che i cookie siano di terze
+						// parti,attraverso il nome del file escludo i cookie
+						// che non sono cross-domain (ovvero, se il cookie
+						// corrente ha un dominio coerente con quello del nome
+						// del file xml non è da considerare) DA RIVEDERE
+						String fileFirstDomain = filename.split("\\.")[0];
+						// regex da rivedere
+						if (!fileFirstDomain.matches("([a-z0-9]?+[.])*" + host)) {
+
+							// System.out.println("FILENAME: " + filename +"
+							// HOST PRESENTI: " + host);
+
+							if (domainTLD.equalsIgnoreCase("it")) {
+								// se ho già un cookie di un sotto-sovra dominio
+								// nella mappa, lo uso come chiave, eliminando
+								// ridondanze
+								for (String s : cookieHostOccurrencesMapIT.keySet()) {
+									// verifico se il cookie esiste gia sulla
+									// base
+									// della regex
+									if (s.matches(mainDomainRegExp)) {
+										keyToUpdate = s;
+										// se ho trovato cosa cercavo esco per
+										// evitare cicli inutili
+										break;
+									}
 								}
-							}
-							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapNET);
-						} else {
-							//se ho già un cookie di un sotto-sovra dominio nella mappa, lo uso come chiave, eliminando ridondanze
-							for (String s : cookieHostOccurrencesMapIT.keySet()) {
-								if(s.matches(mainDomainRegExp)){
-									keyToUpdate = s;
-									//se ho trovato cosa cercavo esco per evitare cicli inutili
-									break;
+								updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapIT);
+							} else if (domainTLD.equalsIgnoreCase("com")) {
+								// se ho già un cookie di un sotto/sovra dominio
+								// nella mappa, lo uso come chiave, eliminando
+								// ridondanze
+								for (String s : cookieHostOccurrencesMapIT.keySet()) {
+									if (s.matches(mainDomainRegExp)) {
+										keyToUpdate = s;
+										// se ho trovato cosa cercavo esco per
+										// evitare cicli inutili
+										break;
+									}
 								}
+								updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapCOM);
+
+							} else if (domainTLD.equalsIgnoreCase("net")) {
+								// se ho già un cookie di un sotto-sovra dominio
+								// nella mappa, lo uso come chiave, eliminando
+								// ridondanze
+								for (String s : cookieHostOccurrencesMapIT.keySet()) {
+									if (s.matches(mainDomainRegExp)) {
+										keyToUpdate = s;
+										// se ho trovato cosa cercavo esco per
+										// evitare cicli inutili
+										break;
+									}
+								}
+								updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapNET);
+							} else {
+								// se ho già un cookie di un sotto-sovra dominio
+								// nella mappa, lo uso come chiave, eliminando
+								// ridondanze
+								for (String s : cookieHostOccurrencesMapIT.keySet()) {
+									if (s.matches(mainDomainRegExp)) {
+										keyToUpdate = s;
+										// se ho trovato cosa cercavo esco per
+										// evitare cicli inutili
+										break;
+									}
+								}
+								updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapMISC);
 							}
-							updateOccurrencesMap(keyToUpdate, cookieHostOccurrencesMapMISC);
+							
+							//statistiche sul tld di origine dei cookie 
+							updateOccurrencesMap(domainTLD, cookieOriginMap);
+
 						}
-
-						// }
 
 					}
 

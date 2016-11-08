@@ -1,0 +1,134 @@
+<cookies>
+	<cookie id="__vrl">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478259877</expires>
+		<name>__vrl</name>
+		<value><![CDATA[javascript%253AcookieLaw.acceptCookies()%253Bvoid(0)%253B]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__vrf">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261641</expires>
+		<name>__vrf</name>
+		<value><![CDATA[1478259841056EHiYGJ9mZKtnLpedZRKqj9CbsdY7g0cw]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__vru">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478259877</expires>
+		<name>__vru</name>
+		<value><![CDATA[http%253A%252F%252Fwww.ilmessaggero.it%252F]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__vrid">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478259877</expires>
+		<name>__vrid</name>
+		<value><![CDATA[597]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>ilmessaggero.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[rb061cgkg18rt8f66n6tp42vn6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookieLaw">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509795841</expires>
+		<name>cookieLaw</name>
+		<value><![CDATA[Ax6PprVEyHrvLifvpdR6ENtPR1fECh6XbVxBHwEtIVra9kAQa1tyfBGqQNdRSunEM7E7drg9iAMwlpGJVilQqLJd%2FhtyttKWRMA6Q07oaCcnYWw%2B66AT83%2F%2F3ivMstWaAqGw2bVvH5%2BDOwSvUUQ%2FN%2FJRJlZ9f6YbZZ3WO6JwBs6y3h3QGgroTLNCoNZ6ULB%2FFj8HoyT8TSllSVBt2u19EDtDVx%2B9cQuDV%2BqAjwq3RGs3jDOtjzHXL6cBx9TVQAZwedlbS8kIvkCfwJ6%2BnWVQa%2FVekYUEEt3NkghYAxWe10E%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541331841</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.1452514678.1478259842]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.ilmessaggero.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260441</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="fr">
+		<host>.facebook.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1486035841</expires>
+		<name>fr</name>
+		<value><![CDATA[05M4QZCSAduDhBeXN..BYHHR_...1.0.BYHHR_.]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493811842</expires>
+		<name>wteid_927615140575951</name>
+		<value><![CDATA[4147825983900819461]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_927615140575951</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="metrics_token">
+		<host>.syndication.twitter.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/i/jot/syndication</path>
+		<issecure>FALSE</issecure>
+		<expires>1483357442</expires>
+		<name>metrics_token</name>
+		<value><![CDATA["v1:14782598408454984997703634"]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

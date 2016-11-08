@@ -1,0 +1,112 @@
+<cookies>
+	<cookie id="__cfduid">
+		<host>.ilmanifesto.info</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509795885</expires>
+		<name>__cfduid</name>
+		<value><![CDATA[da69f4ee37246e44943351434702df1391478259883]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="fonts-loaded">
+		<host>ilmanifesto.info</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478346286</expires>
+		<name>fonts-loaded</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="sa_id">
+		<host>.ilmanifesto.info</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>sa_id</name>
+		<value><![CDATA[njk1ogfc3f88ma7bv5fac4r6d1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__tpl_bottom_adv">
+		<host>ilmanifesto.info</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478346288</expires>
+		<name>__tpl_bottom_adv</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.ilmanifesto.info</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541331888</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.1920253608.1478259889]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.ilmanifesto.info</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260488</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_cb_ls">
+		<host>ilmanifesto.info</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1512387888</expires>
+		<name>_cb_ls</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_cb">
+		<host>ilmanifesto.info</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1512387888</expires>
+		<name>_cb</name>
+		<value><![CDATA[s9_I8D_C9HD2b8aj]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_chartbeat2">
+		<host>ilmanifesto.info</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1512387888</expires>
+		<name>_chartbeat2</name>
+		<value><![CDATA[.1478259888794.1478259888794.1.Bhc6EmDRrSmSBnH5Y6LcqOICmMedn]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="JSESSIONID">
+		<host>.nr-data.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>TRUE</issecure>
+		<expires>0</expires>
+		<name>JSESSIONID</name>
+		<value><![CDATA[4f355992010fa6eb]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

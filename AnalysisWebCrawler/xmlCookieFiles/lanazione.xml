@@ -1,0 +1,343 @@
+<cookies>
+	<cookie id="MONSESSID">
+		<host>www.stqn.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>MONSESSID</name>
+		<value><![CDATA[isvar00]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="AWSELB">
+		<host>responder.wt-safetag.com</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260317</expires>
+		<name>AWSELB</name>
+		<value><![CDATA[5F6FAFE51E2CE9EB1E6C689A86196977AEB64D8DC1BDEF02FFBA533F69CA427744552AC925446FFD50DF86CEE5CCF5BB9F34FBA9A75565E9428A1992953841E9472DCAC75E]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332259</expires>
+		<name>IMRID</name>
+		<value><![CDATA[24fd9527-7148-48bb-bda2-6153c6ddd7db]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__cfduid">
+		<host>.iubenda.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796257</expires>
+		<name>__cfduid</name>
+		<value><![CDATA[d7824fcd7fa8a46ce50982509f8d8763d1478260255]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_iub_cs-301828">
+		<host>.iubenda.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796260</expires>
+		<name>_iub_cs-301828</name>
+		<value><![CDATA[%7B%22id%22%3A301828%2C%22consent%22%3Atrue%2C%22timestamp%22%3A%222016-11-04T11%3A51%3A00.900Z%22%2C%22version%22%3A%220.13.10%22%7D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="MONSESSID">
+		<host>risultati.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>MONSESSID</name>
+		<value><![CDATA[isvar00]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_754447428866385">
+		<host>monrifitalia01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/754447428866385/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>wteid_754447428866385</name>
+		<value><![CDATA[4147826025600352214]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_754447428866385">
+		<host>monrifitalia01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/754447428866385/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_754447428866385</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_nemesis">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260858</expires>
+		<name>_gat_nemesis</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrif">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260859</expires>
+		<name>_gat_monrif</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332259</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.1710988890.1478260258]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrifnetGlobal">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260859</expires>
+		<name>_gat_monrifnetGlobal</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrifReport">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260859</expires>
+		<name>_gat_monrifReport</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_monrif</name>
+		<value><![CDATA[231974491320]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_monrif</name>
+		<value><![CDATA[1478260259157]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSC_monrif</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it%G1478260256000%G%G%G1%G1478260256000%Ghttp%3A%2F%2Fwww.lanazione.it%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SN_monrif</name>
+		<value><![CDATA[27%Ghttp://www.lanazione.it%G2%G1478260227000%G1478260256000%G3,14,25,26,30,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_N_monrif</name>
+		<value><![CDATA[3,14,25,26,30,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UG_monrif</name>
+		<value><![CDATA[1478260256000,3,14,25,26,30,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UW_monrif</name>
+		<value><![CDATA[1478260256000,3,14,25,26,30,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_monrif">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UM_monrif</name>
+		<value><![CDATA[1478260256000,3,14,25,26,30,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_lanazione</name>
+		<value><![CDATA[327632418331]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_lanazione</name>
+		<value><![CDATA[1478260259176]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSC_lanazione</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it%G1478260257000%G%G%G1%G1478260257000%Ghttp%3A%2F%2Fwww.lanazione.it%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SN_lanazione</name>
+		<value><![CDATA[27%Ghttp://www.lanazione.it%G2%G1478260227000%G1478260257000%G1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_N_lanazione</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UG_lanazione</name>
+		<value><![CDATA[1478260257000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UW_lanazione</name>
+		<value><![CDATA[1478260257000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_lanazione">
+		<host>www.lanazione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812259</expires>
+		<name>SSCN_UM_lanazione</name>
+		<value><![CDATA[1478260257000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_lp4_u">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796259</expires>
+		<name>_lp4_u</name>
+		<value><![CDATA[K7cKzX3FqW]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_iub_cs-301828">
+		<host>.lanazione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796260</expires>
+		<name>_iub_cs-301828</name>
+		<value><![CDATA[%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222016-11-04T11%3A51%3A00.900Z%22%2C%22version%22%3A%220.13.10%22%2C%22id%22%3A301828%7D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

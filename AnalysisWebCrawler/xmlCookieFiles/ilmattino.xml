@@ -1,0 +1,222 @@
+<cookies>
+	<cookie id="NID">
+		<host>.google.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494070958</expires>
+		<name>NID</name>
+		<value><![CDATA[90=ICXdxhppwuATUlG9T0bcMuWz61Wp9bDf9wF17z0K3gPPSZ4hEWBOsxwNJqJ-yXI-oFKucbhMzXCiKbiFuTgoH2mQjF_YwHyazAysdfOilHwLYJ2e1wa0Tlqa1pPRsLHr]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>www.ilmattino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480851757</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[9vcbu30c9r5o7t9daes1j3bq93]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wt_r">
+		<host>www.ilmattino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478259878</expires>
+		<name>wt_r</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utma">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541331758</expires>
+		<name>__utma</name>
+		<value><![CDATA[66908150.1748305233.1478259758.1478259758.1478259758.1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmc">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>__utmc</name>
+		<value><![CDATA[66908150]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmz">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494027758</expires>
+		<name>__utmz</name>
+		<value><![CDATA[66908150.1478259758.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmt">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260358</expires>
+		<name>__utmt</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmb">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261558</expires>
+		<name>__utmb</name>
+		<value><![CDATA[66908150.1.10.1478259758]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="socialLogin">
+		<host>www.ilmattino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480851758</expires>
+		<name>socialLogin</name>
+		<value><![CDATA[4Hqn0fM1aU0xUCrnJXBgwYV9sWf2xRWXCP%2BOhNvpV%2Bo%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>ilmattino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480851762</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[tf5bvidgt1171352jkgdepvt57]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookieLaw">
+		<host>.ilmattino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509795762</expires>
+		<name>cookieLaw</name>
+		<value><![CDATA[0e0hQYKttNO01uL%2FPvCGwpHwvlqpNsPM%2BEIWQb35jEdmJrwuOfsI4GYzWG6QnR%2FcpKvYzV4YnN85Zk7We%2BOyOLJd%2FhtyttKWRMA6Q07oaCcnYWw%2B66AT83%2F%2F3ivMstWaAqGw2bVvH5%2BDOwSvUUQ%2FN%2FJRJlZ9f6YbZZ3WO6JwBs6y3h3QGgroTLNCoNZ6ULB%2FFj8HoyT8TSllSVBt2u19EDtDVx%2B9cQuDV%2BqAjwq3RGs3jDOtjzHXL6cBx9TVQAZwa0epRgJPHtWfm%2BPETMxh0cIMAfklf2BGx%2FCPWXKCSDs%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bkdc">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493811758</expires>
+		<name>bkdc</name>
+		<value><![CDATA[wdc]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bku">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493811759</expires>
+		<name>bku</name>
+		<value><![CDATA[oUy99Yh6caMmrXBm]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="AWSELB">
+		<host>responder.wt-safetag.com</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478259818</expires>
+		<name>AWSELB</name>
+		<value><![CDATA[5F6FAFE51E2CE9EB1E6C689A86196977AEB64D8DC12392C0FDD2F5B966CB4C67079619A2A9446FFD50DF86CEE5CCF5BB9F34FBA9A79A762AFA496246BCF69AD1940BE603F9]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541331758</expires>
+		<name>IMRID</name>
+		<value><![CDATA[27fd0e88-ebb5-4157-9b39-a9b649933a9b]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="afsu">
+		<host>gsn.chameleon.ad</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1524873602</expires>
+		<name>afsu</name>
+		<value><![CDATA[GkD8+lG03tBr1jZ9mJMQvgjT1T5ZWtQs01B/X8onu9MbQdl/LdeLrSB+NFcNJkqC3RO8LG5NvbchHsdwSSxavpjM3Q==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_927615140575951</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493811763</expires>
+		<name>wteid_927615140575951</name>
+		<value><![CDATA[4147825975500163903]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.teleborsa.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541331759</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.1249903325.1478259760]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.teleborsa.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260359</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

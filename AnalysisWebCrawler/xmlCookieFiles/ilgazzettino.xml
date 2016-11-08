@@ -1,0 +1,310 @@
+<cookies>
+	<cookie id="NID">
+		<host>.google.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494071882</expires>
+		<name>NID</name>
+		<value><![CDATA[90=u4YsLcqb4qE8RmSeBu3JMGJouou2BjjxIa-0MtDyS27U-pe0cAVBPZKo9InP-JJCS03LoFmBWxbEVAJ4dF9UjBQBUwEv4zGKlPHgAQGcTJO3ehF3r90llCav-9hzGpPQ]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="AWSELB">
+		<host>responder.wt-safetag.com</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260742</expires>
+		<name>AWSELB</name>
+		<value><![CDATA[5F6FAFE51E2CE9EB1E6C689A86196977AEB64D8DC1BDEF02FFBA533F69CA427744552AC9252430107D201FC90C65AAF498A147DA835565E9428A1992953841E9472DCAC75E]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[cjbn7ro6h65sefgni5ptatdga5]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_caltagroup</name>
+		<value><![CDATA[1439992577469]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_caltagroup</name>
+		<value><![CDATA[1478260682059]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SSC_caltagroup</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it%G1478260679000%G%G%G1%G1478260679000%Ghttp%3A%2F%2Fwww.ilgazzettino.it%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SN_caltagroup</name>
+		<value><![CDATA[6%Gwww.ilgazzettino.it/%G2%G1478260672000%G1478260679000%G1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SSCN_N_caltagroup</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SSCN_UG_caltagroup</name>
+		<value><![CDATA[1478260679000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SSCN_UW_caltagroup</name>
+		<value><![CDATA[1478260679000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_caltagroup">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812682</expires>
+		<name>SSCN_UM_caltagroup</name>
+		<value><![CDATA[1478260679000,1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wt_r">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260802</expires>
+		<name>wt_r</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.ilgazzettino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261282</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="socialLogin">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480852682</expires>
+		<name>socialLogin</name>
+		<value><![CDATA[YW%2B5rjEuzJhii4GeU%2FLk2VlTLE6NHE%2FBvC5vFg%2BPBC8%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.ilgazzettino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332687</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.423228981.1478260682]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_Xplatform">
+		<host>.ilgazzettino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261287</expires>
+		<name>_gat_Xplatform</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[sa7ag67mknk6h837ufkbec6hd5]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookieLaw">
+		<host>.ilgazzettino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796687</expires>
+		<name>cookieLaw</name>
+		<value><![CDATA[Ax6PprVEyHrvLifvpdR6ENtPR1fECh6XbVxBHwEtIVryUM69zHjLZbXQzuQG%2FDqoJaUpR6%2FZM%2BZ3TqkEcxRaA7Jd%2FhtyttKWRMA6Q07oaCcnYWw%2B66AT83%2F%2F3ivMstWaAqGw2bVvH5%2BDOwSvUUQ%2FN%2FJRJlZ9f6YbZZ3WO6JwBs6y3h3QGgroTLNCoNZ6ULB%2FFj8HoyT8TSllSVBt2u19EDtDVx%2B9cQuDV%2BqAjwq3RGs3jDOtjzHXL6cBx9TVQAZwURSwu8R4E13j0zpRGiKYzmWJnEuGVJVwLIprNvvK5uk%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__vrf">
+		<host>.ilgazzettino.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478262487</expires>
+		<name>__vrf</name>
+		<value><![CDATA[1478260687447rgX2d1WpMxnFVpkpRWtjMP67vlSAGzWH]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__vrrefresh">
+		<host>www.ilgazzettino.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478260993</expires>
+		<name>__vrrefresh</name>
+		<value><![CDATA[http%253A%252F%252Fwww.ilgazzettino.it%252F]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332683</expires>
+		<name>IMRID</name>
+		<value><![CDATA[1dc2c4fc-d84c-4ea4-a1be-08cf5b1cfdd6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bkdc">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812683</expires>
+		<name>bkdc</name>
+		<value><![CDATA[wdc]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bku">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812683</expires>
+		<name>bku</name>
+		<value><![CDATA[oly991klcaMP49Hj]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="afsu">
+		<host>gsn.chameleon.ad</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1524873603</expires>
+		<name>afsu</name>
+		<value><![CDATA[GkD8+lG02UoI1jZ9mJMQvh2of0z7un4S4Y5xJ+RgheDn7IvgToIkTdMH0rAeeMjr9BJb+p8eUBNn3l5hO/Ur08BGSw==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="fr">
+		<host>.facebook.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1486036687</expires>
+		<name>fr</name>
+		<value><![CDATA[0P9N6SaC71kyFqnhN..BYHHfN...1.0.BYHHfN.]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_927615140575951</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493812687</expires>
+		<name>wteid_927615140575951</name>
+		<value><![CDATA[4147826068100224320]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="test_cookie">
+		<host>.doubleclick.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261583</expires>
+		<name>test_cookie</name>
+		<value><![CDATA[CheckForPermission]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

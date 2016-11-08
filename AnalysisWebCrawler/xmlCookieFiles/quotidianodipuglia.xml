@@ -1,0 +1,387 @@
+<cookies>
+	<cookie id="NID">
+		<host>.google.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494074073</expires>
+		<name>NID</name>
+		<value><![CDATA[90=YaAGTUp9gg_U_3_IpXU8H_PNO5ay7l6snqfVpvQfp9J62Mp0MhxVUklYbhYKHHRpWbuqYr1Mtlasz866vUbL75_46LvZwmOzo66_vPrN_zxxkH-eI6D1rQwF7xbfGUpm]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bkdc">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814874</expires>
+		<name>bkdc</name>
+		<value><![CDATA[wdc]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bku">
+		<host>.bluekai.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814875</expires>
+		<name>bku</name>
+		<value><![CDATA[3ly99ai9caQdfMQd]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="AWSELB">
+		<host>responder.wt-safetag.com</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478262933</expires>
+		<name>AWSELB</name>
+		<value><![CDATA[5F6FAFE51E2CE9EB1E6C689A86196977AEB64D8DC1BDEF02FFBA533F69CA427744552AC9252430107D201FC90C65AAF498A147DA835565E9428A1992953841E9472DCAC75E]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541334877</expires>
+		<name>IMRID</name>
+		<value><![CDATA[eb942c0e-cce6-42eb-a3c9-6b3ff663242d]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[74khrnsa7n3ujogvmkruqu1nt2]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utma">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541334873</expires>
+		<name>__utma</name>
+		<value><![CDATA[192553258.1670137621.1478262873.1478262873.1478262873.1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmc">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>__utmc</name>
+		<value><![CDATA[192553258]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmz">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494030873</expires>
+		<name>__utmz</name>
+		<value><![CDATA[192553258.1478262873.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmt">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263473</expires>
+		<name>__utmt</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__utmb">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478264673</expires>
+		<name>__utmb</name>
+		<value><![CDATA[192553258.1.10.1478262873]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wt_r">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478262993</expires>
+		<name>wt_r</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="socialLogin">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480854873</expires>
+		<name>socialLogin</name>
+		<value><![CDATA[YW%2B5rjEuzJhii4GeU%2FLk2VlTLE6NHE%2FBvC5vFg%2BPBC8%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_caltagroup</name>
+		<value><![CDATA[568943369042]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_caltagroup</name>
+		<value><![CDATA[1478262876493]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSC_caltagroup</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it&FHR=http%3A%2F%2Fwww.quotidianodipuglia.it%2F%G1478262874000%G%G%G1%G1478262874000%Ghttp%3A%2F%2Fwww.quotidianodipuglia.it%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SN_caltagroup</name>
+		<value><![CDATA[6%Gwww.quotidianodipuglia.it/%G2%G1478262863000%G1478262874000%G6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_N_caltagroup</name>
+		<value><![CDATA[6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UG_caltagroup</name>
+		<value><![CDATA[1478262874000,6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UW_caltagroup</name>
+		<value><![CDATA[1478262874000,6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_caltagroup">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UM_caltagroup</name>
+		<value><![CDATA[1478262874000,6]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_nuovoquotidiano</name>
+		<value><![CDATA[1008681570791]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_nuovoquotidiano</name>
+		<value><![CDATA[1478262876509]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSC_nuovoquotidiano</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it&FHR=http%3A%2F%2Fwww.quotidianodipuglia.it%2F%G1478262874000%G%G%G1%G1478262874000%Ghttp%3A%2F%2Fwww.quotidianodipuglia.it%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SN_nuovoquotidiano</name>
+		<value><![CDATA[6%Gwww.quotidianodipuglia.it/%G2%G1478262863000%G1478262874000%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_N_nuovoquotidiano</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UG_nuovoquotidiano</name>
+		<value><![CDATA[1478262874000,]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UW_nuovoquotidiano</name>
+		<value><![CDATA[1478262874000,]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_nuovoquotidiano">
+		<host>www.quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814876</expires>
+		<name>SSCN_UM_nuovoquotidiano</name>
+		<value><![CDATA[1478262874000,]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="PHPSESSID">
+		<host>quotidianodipuglia.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>PHPSESSID</name>
+		<value><![CDATA[qd1thba9rpiaki0s2fn93t4020]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookieLaw">
+		<host>.quotidianodipuglia.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509798877</expires>
+		<name>cookieLaw</name>
+		<value><![CDATA[t2Fu2OCGn3QnrtJo4%2BC67G4za7NZNB7htAS%2Fmc4P1zSpFeJCzwBQmtdkGEBdkC0sP%2BweVv4w3paLp7A0ZffL0rJd%2FhtyttKWRMA6Q07oaCcnYWw%2B66AT83%2F%2F3ivMstWaAqGw2bVvH5%2BDOwSvUUQ%2FN%2FJRJlZ9f6YbZZ3WO6JwBs6y3h3QGgroTLNCoNZ6ULB%2FFj8HoyT8TSllSVBt2u19EDtDVx%2B9cQuDV%2BqAjwq3RGs3jDOtjzHXL6cBx9TVQAZwrguEAKNrGnrC0KP01LggkG14Uqxi%2B4DwhQTHJ3eXLrw%3D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="afsu">
+		<host>gsn.chameleon.ad</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1524873602</expires>
+		<name>afsu</name>
+		<value><![CDATA[GkD8+lG02OEL1jZ9mJMQviGFFtl6yEinPpMoWuUfvjvQ8tGbd36B9QJKAB7zmXRDWPtWePdLZI9MsgzbToCvwMvtGg==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="fr">
+		<host>.facebook.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1486038877</expires>
+		<name>fr</name>
+		<value><![CDATA[0ZWtnEiysDkMvbf7t..BYHIBb...1.0.BYHIBb.]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_927615140575951</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_927615140575951">
+		<host>caltagironeeditore01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/927615140575951/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493814878</expires>
+		<name>wteid_927615140575951</name>
+		<value><![CDATA[4147826287100070331]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

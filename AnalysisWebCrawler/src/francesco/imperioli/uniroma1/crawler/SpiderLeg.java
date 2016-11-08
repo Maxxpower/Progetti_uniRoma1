@@ -122,11 +122,20 @@ public class SpiderLeg {
 
 		String[] baseUrlSplit = baseUrl.split("\\.");
 
-		Path tagFile = Paths.get("C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookieTags\\" + baseUrlSplit[1]
-				+ System.currentTimeMillis() + ".txt");
+		Path tagFile = Paths.get("C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookieTags\\" + baseUrlSplit[1]+ ".txt");
 		try {
-			Files.deleteIfExists(tagFile);
-			Files.write(tagFile, cookieTagsFound, StandardOpenOption.CREATE_NEW);
+//			
+			if (Files.exists(tagFile)){
+				
+				Files.write(tagFile, cookieTagsFound, StandardOpenOption.APPEND);
+				
+			}else{
+				
+				
+				Files.write(tagFile, cookieTagsFound, StandardOpenOption.CREATE_NEW);
+			}
+			
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

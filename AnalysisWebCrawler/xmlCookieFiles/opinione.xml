@@ -1,0 +1,145 @@
+<cookies>
+	<cookie id="NID">
+		<host>.google.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494071925</expires>
+		<name>NID</name>
+		<value><![CDATA[90=A4LtRmRP5Atbyl9_stVgJsumITYQSPjCJGE8EgFS9CP31LD-bvDfL1cjvKxHYTYHs-5N_AfbQ6I_kcsyxpBnb0U5wTYiln_YXY_k1wAhNTVK8S-8tNtAc1PyizxBGB8s]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="uvc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>uvc</name>
+		<value><![CDATA[1%7C44]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bt2">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1500379127</expires>
+		<name>bt2</name>
+		<value><![CDATA[581c77f5001Fs0001]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="di2">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>di2</name>
+		<value><![CDATA[aUhuT#$>f6Hq]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="uid">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>uid</name>
+		<value><![CDATA[581c77f56e2154e7]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="vc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>vc</name>
+		<value><![CDATA[2]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="loc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>loc</name>
+		<value><![CDATA[MDAwMDBFVUlUMDAyMjU1MTg5MjAwMDAwMDAwVg==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="metrics_token">
+		<host>.syndication.twitter.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/i/jot/syndication</path>
+		<issecure>FALSE</issecure>
+		<expires>1483358326</expires>
+		<name>metrics_token</name>
+		<value><![CDATA["v1:14782607245148545038384656"]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.opinione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332725</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.915919940.1478260725]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.opinione.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261325</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__atuvc">
+		<host>www.opinione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332727</expires>
+		<name>__atuvc</name>
+		<value><![CDATA[1%7C44]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__atuvs">
+		<host>www.opinione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478262527</expires>
+		<name>__atuvs</name>
+		<value><![CDATA[581c77f5c59a9807000]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookiesDirective">
+		<host>www.opinione.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796728</expires>
+		<name>cookiesDirective</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

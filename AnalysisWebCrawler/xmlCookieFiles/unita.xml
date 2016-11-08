@@ -1,0 +1,233 @@
+<cookies>
+	<cookie id="axd">
+		<host>www.unita.tv</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1480852544</expires>
+		<name>axd</name>
+		<value><![CDATA[1001411531255420000]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.unita.tv</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261148</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="cookielaw-acpt">
+		<host>www.unita.tv</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796550</expires>
+		<name>cookielaw-acpt</name>
+		<value><![CDATA[true]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.unita.tv</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332552</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.2115630661.1478260548]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__atuvc">
+		<host>www.unita.tv</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332564</expires>
+		<name>__atuvc</name>
+		<value><![CDATA[1%7C44]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__atuvs">
+		<host>www.unita.tv</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478262364</expires>
+		<name>__atuvs</name>
+		<value><![CDATA[581c77485667aa4b000]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="tis">
+		<host>.theadex.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1793620549</expires>
+		<name>tis</name>
+		<value><![CDATA[EP34%3A1167%7CEP8%3A1167%7CEP1%3A1167]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="axd">
+		<host>.theadex.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509796554</expires>
+		<name>axd</name>
+		<value><![CDATA[1001411531255420000]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332549</expires>
+		<name>IMRID</name>
+		<value><![CDATA[aedef628-b0ec-48a8-943e-7ddbc2652bac]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="sess">
+		<host>.adnxs.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478346946</expires>
+		<name>sess</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="uuid2">
+		<host>.adnxs.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1486036546</expires>
+		<name>uuid2</name>
+		<value><![CDATA[7125895961753510274]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="ci">
+		<host>.nuggad.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494028547</expires>
+		<name>ci</name>
+		<value><![CDATA[e/sIiU1LPxvtip2aJmUeYUT4IBULB9EueawUNZ8PUSay3z3CackOn2fRQIVz4DbSDZZq]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="d">
+		<host>.nuggad.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1494028547</expires>
+		<name>d</name>
+		<value><![CDATA[HUY760S6iKVbfP5FhJD6UIXXMhOFpHPTkWu7A5pWOlxyuz35QSUNK+csWFKxNEeEWJxebzvrsqy4uPgl2HoYzdNGIiUHiz34mUgnGQ6hItaDnJS7n/NHcNpBkaI/4zrHsvn4ZfihnwnHEIZDDLw0v8rfW4TT07fcfNWt9N1FRz3X3ROlJTHM5t5BOBF/FnyZQmCrEGPZfaALp1ANLwytUHgxF0H5btg=]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="uvc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332565</expires>
+		<name>uvc</name>
+		<value><![CDATA[1%7C44]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="bt2">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1500378965</expires>
+		<name>bt2</name>
+		<value><![CDATA[581c7753001Fs0001001us0001]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="di2">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332565</expires>
+		<name>di2</name>
+		<value><![CDATA[aUhuT#$>f6Hq]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="uid">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332565</expires>
+		<name>uid</name>
+		<value><![CDATA[581c775353ddffbc]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="vc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332565</expires>
+		<name>vc</name>
+		<value><![CDATA[2]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="loc">
+		<host>.addthis.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332565</expires>
+		<name>loc</name>
+		<value><![CDATA[MDAwMDBFVUlUMDAyMjU1MTg5MjAwMDAwMDAwVg==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="id">
+		<host>.doubleclick.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332545</expires>
+		<name>id</name>
+		<value><![CDATA[226414d60b0e0094||t=1478260543|et=730|cs=002213fd4832f30a0487c96661]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IDE">
+		<host>.doubleclick.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541332545</expires>
+		<name>IDE</name>
+		<value><![CDATA[AHWqTUkVeikbGmCaC6Q6hLvj2tETwjiv2QKgUC7A4-_STVGTNbPz22r8eA]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

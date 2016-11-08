@@ -1,0 +1,343 @@
+<cookies>
+	<cookie id="__cfduid">
+		<host>.iubenda.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509797008</expires>
+		<name>__cfduid</name>
+		<value><![CDATA[d66714823bab8c8a40cece00ef0de2cae1478261006]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_iub_cs-301828">
+		<host>.iubenda.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509797013</expires>
+		<name>_iub_cs-301828</name>
+		<value><![CDATA[%7B%22id%22%3A301828%2C%22consent%22%3Atrue%2C%22timestamp%22%3A%222016-11-04T12%3A03%3A33.294Z%22%2C%22version%22%3A%220.13.10%22%7D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IMRID">
+		<host>.imrworldwide.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541333010</expires>
+		<name>IMRID</name>
+		<value><![CDATA[5f0b0539-b109-422d-b1ef-6b8cd32e3fb7]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="AWSELB">
+		<host>responder.wt-safetag.com</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261068</expires>
+		<name>AWSELB</name>
+		<value><![CDATA[5F6FAFE51E2CE9EB1E6C689A86196977AEB64D8DC1BDEF02FFBA533F69CA427744552AC9252430107D201FC90C65AAF498A147DA835565E9428A1992953841E9472DCAC75E]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wteid_754447428866385">
+		<host>monrifitalia01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/754447428866385/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813010</expires>
+		<name>wteid_754447428866385</name>
+		<value><![CDATA[4147826100700842461]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="wtsid_754447428866385">
+		<host>monrifitalia01.wt-eu02.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/754447428866385/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>wtsid_754447428866385</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541333009</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.859733946.1478261009]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_nemesis">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261609</expires>
+		<name>_gat_nemesis</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrif">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261609</expires>
+		<name>_gat_monrif</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrifnetGlobal">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261609</expires>
+		<name>_gat_monrifnetGlobal</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat_monrifReport">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261609</expires>
+		<name>_gat_monrifReport</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_monrif</name>
+		<value><![CDATA[508451241995]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_monrif</name>
+		<value><![CDATA[1478261009815]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSC_monrif</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it%G1478261008000%G%G%G1%G1478261008000%Ghttp%3A%2F%2Fwww.quotidiano.net%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SN_monrif</name>
+		<value><![CDATA[16%Ghttp://www.quotidiano.net%G2%G1478260990000%G1478261008000%G14,26,28,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_N_monrif</name>
+		<value><![CDATA[14,26,28,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UG_monrif</name>
+		<value><![CDATA[1478261008000,14,26,28,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UW_monrif</name>
+		<value><![CDATA[1478261008000,14,26,28,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_monrif">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UM_monrif</name>
+		<value><![CDATA[1478261008000,14,26,28,38,47]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSID_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SSID_qnet</name>
+		<value><![CDATA[401967298447]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SV_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>SV_qnet</name>
+		<value><![CDATA[1478261009828]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSC_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSC_qnet</name>
+		<value><![CDATA[1%G1%Ghttps%3A%2F%2Fwww.google.it%G1478261008000%G%G%G1%G1478261008000%Ghttp%3A%2F%2Fwww.quotidiano.net%2F%G]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SN_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SN_qnet</name>
+		<value><![CDATA[16%Ghttp://www.quotidiano.net%G2%G1478260990000%G1478261008000%G10,27]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_N_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_N_qnet</name>
+		<value><![CDATA[10,27]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UG_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UG_qnet</name>
+		<value><![CDATA[1478261008000,10,27]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UW_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UW_qnet</name>
+		<value><![CDATA[1478261008000,10,27]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="SSCN_UM_qnet">
+		<host>www.quotidiano.net</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1493813009</expires>
+		<name>SSCN_UM_qnet</name>
+		<value><![CDATA[1478261008000,10,27]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_lp4_u">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509797009</expires>
+		<name>_lp4_u</name>
+		<value><![CDATA[lr5e1W9S65]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="RT">
+		<host>.www.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478865813</expires>
+		<name>RT</name>
+		<value><![CDATA["dm=www.quotidiano.net&si=0e5mt9dh2zem&ss=1478260892311&sl=2&tt=3284&obo=0&sh=1478261009479%3D2%3A0%3A3284%2C1478260992218%3D1%3A0%3A1735&rl=1&ld=1478261009479&nu=&cl=1478261013292"]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_iub_cs-301828">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509797013</expires>
+		<name>_iub_cs-301828</name>
+		<value><![CDATA[%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222016-11-04T12%3A03%3A33.294Z%22%2C%22version%22%3A%220.13.10%22%2C%22id%22%3A301828%7D]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gali">
+		<host>.quotidiano.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478261045</expires>
+		<name>_gali</name>
+		<value><![CDATA[body]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>

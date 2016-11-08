@@ -1,0 +1,299 @@
+<cookies>
+	<cookie id="rsid">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>rsid</name>
+		<value><![CDATA[EsuOVS/zp8dPD+Hie0dN0+91IqbT+15VpvvoE16N7S94Q4OhPXT5SJUHHOA/m8Qxsrkguh57oB3KcuItf4JuFpBe9pw6JSWDZt2m5c29XOtKD91e7km1D28Ek3czxA+tUvTjPcsACa1R6U2I4m29pLW/Aw==]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="ruid">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1486039011</expires>
+		<name>ruid</name>
+		<value><![CDATA[591ffc69581c80e15ff5cb8d2e2140^1^1478263009^1609943949]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="rdk57">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263021</expires>
+		<name>rdk57</name>
+		<value><![CDATA[0]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="ses57">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>ses57</name>
+		<value><![CDATA[45718^1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="vis57">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>vis57</name>
+		<value><![CDATA[45718^1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csi57">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867811</expires>
+		<name>csi57</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csc57">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867811</expires>
+		<name>csc57</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="rdk15">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263022</expires>
+		<name>rdk15</name>
+		<value><![CDATA[0]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csi15">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867812</expires>
+		<name>csi15</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csc15">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867812</expires>
+		<name>csc15</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="rdk2">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263022</expires>
+		<name>rdk2</name>
+		<value><![CDATA[0]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csi2">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867812</expires>
+		<name>csi2</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="csc2">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478867812</expires>
+		<name>csc2</name>
+		<value><![CDATA[]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="ses15">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>ses15</name>
+		<value><![CDATA[45618^1&45658^2]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="vis15">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>vis15</name>
+		<value><![CDATA[45618^1&45658^2]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="rdk">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263072</expires>
+		<name>rdk</name>
+		<value><![CDATA[10653/45614]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="ses2">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>ses2</name>
+		<value><![CDATA[45614^1&45718^1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="vis2">
+		<host>.rubiconproject.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478329201</expires>
+		<name>vis2</name>
+		<value><![CDATA[45614^1&45718^1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="has_js">
+		<host>www.metronews.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>0</expires>
+		<name>has_js</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_ga">
+		<host>.metronews.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541335010</expires>
+		<name>_ga</name>
+		<value><![CDATA[GA1.2.821551943.1478263010]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="_gat">
+		<host>.metronews.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1478263610</expires>
+		<name>_gat</name>
+		<value><![CDATA[1]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="__gads">
+		<host>.metronews.it</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541335008</expires>
+		<name>__gads</name>
+		<value><![CDATA[ID=b2421ecaa41a9d28:T=1478263008:S=ALNI_MY1Xr1lbl3ZlAmhyRaoVrb1HrZVhQ]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="displayCookieConsent">
+		<host>www.metronews.it</host>
+		<isdomain>FALSE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1509799013</expires>
+		<name>displayCookieConsent</name>
+		<value><![CDATA[y]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="id">
+		<host>.mookie1.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1512391012</expires>
+		<name>id</name>
+		<value><![CDATA[11406984537451654980]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="mdata">
+		<host>.mookie1.com</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1512391012</expires>
+		<name>mdata</name>
+		<value><![CDATA[1|11406984537451654980|1478263010415]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="id">
+		<host>.doubleclick.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541335011</expires>
+		<name>id</name>
+		<value><![CDATA[224f6b2ef30d0006||t=1478263009|et=730|cs=002213fd485cb35c8c76b0b113]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+	<cookie id="IDE">
+		<host>.doubleclick.net</host>
+		<isdomain>TRUE</isdomain>
+		<path>/</path>
+		<issecure>FALSE</issecure>
+		<expires>1541335011</expires>
+		<name>IDE</name>
+		<value><![CDATA[AHWqTUl_NGijqoZV-tvmqgv9WuZ_nx3woO8c_jZLA8QlvtJI1UNub2Ahdw]]></value>
+		<policy>0</policy>
+		<status>0</status>
+	</cookie>
+</cookies>
