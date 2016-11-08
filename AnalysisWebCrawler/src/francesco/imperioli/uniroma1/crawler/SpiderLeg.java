@@ -121,8 +121,26 @@ public class SpiderLeg {
 	private void writeTagsToFile() {
 
 		String[] baseUrlSplit = baseUrl.split("\\.");
+		String filename="";
+		
+		if(baseUrlSplit.length>=3){
+			
+			filename=baseUrlSplit[1];
+			
+		}else{
+			
+			filename=baseUrl.replaceAll("//", "").replaceAll(".", "").replaceAll("\\", "");
+			if (filename.length()>=15){
+				
+				filename=filename.substring(0,13);
+				
+			}
+		
+			
+		}
+		
 
-		Path tagFile = Paths.get("C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\cookieTags\\" + baseUrlSplit[1]+ ".txt");
+		Path tagFile = Paths.get("./result_files/pageCookieTags/" + filename + ".txt");
 		try {
 //			
 			if (Files.exists(tagFile)){

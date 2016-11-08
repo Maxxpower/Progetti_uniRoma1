@@ -17,4 +17,3 @@ iframe[id*=google_ads_iframe]
 iframe[src*=cookie]
 iframe[id*=ads]
 iframe[style*=visibility:hidden]
-

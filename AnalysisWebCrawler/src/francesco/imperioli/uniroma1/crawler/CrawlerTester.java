@@ -26,30 +26,18 @@ public class CrawlerTester {
 	public static void main(String[] args) {
 
 		// implementazione multithread del crawler con threadpoolexecutor
+		// lettura dei link di partenza da file txt, utilizzo java nio
+		List<String> baseLinks = null;
+		Path linkFile = Paths.get("./inputFiles/listOfurl");
+		try {
+			baseLinks = Files.readAllLines(linkFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+		// multithread sul desktop 5-6 thread sul portatile max 2 thread
 		ExecutorService executor = Executors.newFixedThreadPool(5);
-		ArrayList<String> baseLinks = new ArrayList<String>();
-		ArrayList<Set<String>> linkVisited = new ArrayList<Set<String>>();
-		
-		baseLinks.add("http://www.hdblog.it");
-		baseLinks.add("http://www.lastampa.it");
-		baseLinks.add("http://www.hwupgrade.it");
-		baseLinks.add("http://www.wired.it");
-		baseLinks.add("http://www.gamemag.it");
-		baseLinks.add("http://www.ilmanifesto.info");
-		baseLinks.add("http://www.tuttosport.com");
-		baseLinks.add("http://www.ilmessaggero.it");
-		baseLinks.add("http://www.repubblica.it");
-		baseLinks.add("http://www.corriere.it");
-		baseLinks.add("http://www.huffingtonpost.it");
-		baseLinks.add("http://www.gazzetta.it");
-		baseLinks.add("http://www.ilfattoquotidiano.it");
-		baseLinks.add("http://www.ilgiornale.it");
-		baseLinks.add("http://www.nexthardware.com");
-		baseLinks.add("http://www.amazon.it");
-		baseLinks.add("http://www.liberoquotidiano.it");
-		baseLinks.add("http://www.avvenire.it");
-		baseLinks.add("http://www.lanazione.it");
 
 		for (int i = 0; i < baseLinks.size(); i++) {
 

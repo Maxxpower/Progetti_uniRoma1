@@ -28,32 +28,6 @@ public class StatsMain {
 		Map<String, Integer> cookiePerSito = csg.getNumberOfCookiesPerSite();
 
 		// Generating log files for stats
-
-		// String pathocc =
-		// "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\stats\\occorrenzeIT.txt";
-		// FileUtils.writeMapOnTxt(occorrenzeIT, "NUMERO DI OCCORRENZE PER
-		// COOKIE 3D PARTHY", pathocc);
-		//
-		// String pathoccCOM =
-		// "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\stats\\occorrenzeCOM.txt";
-		// FileUtils.writeMapOnTxt(occorrenzeCOM, "NUMERO DI OCCORRENZE PER
-		// COOKIE 3D PARTHY", pathoccCOM);
-		//
-		// String pathoccNET =
-		// "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\stats\\occorrenzeNET.txt";
-		// FileUtils.writeMapOnTxt(occorrenzeNET, "NUMERO DI OCCORRENZE PER
-		// COOKIE 3D PARTHY", pathoccNET);
-		//
-		// String pathoccMISC =
-		// "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\stats\\occorrenzeMISC.txt";
-		// FileUtils.writeMapOnTxt(occorrenzeMISC, "NUMERO DI OCCORRENZE PER
-		// COOKIE 3D PARTHY", pathoccMISC);
-		//
-		// String pathNc =
-		// "C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\stats\\cookiepersito.txt";
-		// FileUtils.writeMapOnTxt(cookiePerSito, "NUMERO DI COOKIE PER SITO",
-		// pathNc);
-
 		// CSV FILES GENERATION
 		String csvOcc = "./result_files/cookieStats/csvoccorrenzeIT.txt";
 		FileUtils.generateCsvStatsFileFromMap(occorrenzeIT, csvOcc);
