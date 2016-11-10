@@ -28,7 +28,6 @@ public class SpiderLeg {
 	private List<String> cookieTagsFound = new ArrayList<String>();
 	private String baseUrl;
 
-
 	public boolean crawl(String url) {
 
 		this.baseUrl = url;
@@ -55,11 +54,13 @@ public class SpiderLeg {
 			Elements linkDom = htmlDoc.select("a[href]");
 
 			// looking for cookie-setting tags into the DOM
-			//leggo i selettori css da un file txt
-			List<String> selectorList=readSelectors();
-			
-			for (String selector : selectorList) {
+			// leggo i selettori css da un file txt
+			List<String> selectorList = readSelectors();
 
+			for (String selector : selectorList) {
+				// Utilizzo il metodo select sul document html, passandogli uno
+				// dei selettori css, in questo modo ottengo il tag che matcha
+				// la mia condizione
 				Elements cookieTag = htmlDoc.select(selector);
 				addTags(cookieTag);
 
@@ -89,17 +90,16 @@ public class SpiderLeg {
 
 	private List<String> readSelectors() {
 
-		List<String> selectorList=null;
+		List<String> selectorList = null;
 		String filePath = new File("").getAbsolutePath();
-		Path selectorFilePath=Paths.get(filePath+"\\selectorFiles\\selectors.txt");
+		Path selectorFilePath = Paths.get(filePath + "\\selectorFiles\\selectors.txt");
 		try {
-			selectorList=Files.readAllLines(selectorFilePath);
+			selectorList = Files.readAllLines(selectorFilePath);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		return selectorList;
 
 	}
@@ -121,39 +121,35 @@ public class SpiderLeg {
 	private void writeTagsToFile() {
 
 		String[] baseUrlSplit = baseUrl.split("\\.");
-		String filename="";
-		
-		if(baseUrlSplit.length>=3){
-			
-			filename=baseUrlSplit[1];
-			
-		}else{
-			
-			filename=baseUrl.replaceAll("//", "").replaceAll(".", "").replaceAll("\\", "");
-			if (filename.length()>=15){
-				
-				filename=filename.substring(0,13);
-				
+		String filename = "";
+
+		if (baseUrlSplit.length >= 3) {
+
+			filename = baseUrlSplit[1];
+
+		} else {
+
+			filename = baseUrl.replaceAll("//", "").replaceAll(".", "").replaceAll("\\", "");
+			if (filename.length() >= 15) {
+
+				filename = filename.substring(0, 13);
+
 			}
-		
-			
+
 		}
-		
 
 		Path tagFile = Paths.get("./result_files/pageCookieTags/" + filename + ".txt");
 		try {
-//			
-			if (Files.exists(tagFile)){
-				
+			//
+			if (Files.exists(tagFile)) {
+
 				Files.write(tagFile, cookieTagsFound, StandardOpenOption.APPEND);
-				
-			}else{
-				
-				
+
+			} else {
+
 				Files.write(tagFile, cookieTagsFound, StandardOpenOption.CREATE_NEW);
 			}
-			
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
