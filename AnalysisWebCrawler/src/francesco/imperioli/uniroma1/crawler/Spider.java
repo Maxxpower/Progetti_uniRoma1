@@ -87,13 +87,13 @@ public class Spider implements Runnable, Callable<Set<String>> {
 	public void run() {
 
 		navigaLink();
-		salvaLinksSuFile("C:\\Users\\Francesco\\Documents\\dev\\LinksCrawler\\links.txt");
+		salvaLinksSuFile("./result_files/links.txt");
 
 	}
 
 	@Override
 	public Set<String> call() throws Exception {
-		
+
 		navigaLink();
 		return this.visitate;
 	}
