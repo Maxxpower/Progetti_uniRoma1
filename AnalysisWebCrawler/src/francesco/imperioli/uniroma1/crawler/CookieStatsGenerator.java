@@ -268,22 +268,35 @@ public class CookieStatsGenerator {
 	// selectors list will be written on the selectors file
 	private void generateSelectorsByHost(String host, String selectorFile) {
 
+		Path selectorsFilePath = Paths.get(selectorFile);
+		List<String> currentSelectors = null;
+		try {
+			currentSelectors = Files.readAllLines(selectorsFilePath);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		List<String> selectorsToWrite = new ArrayList<String>();
 
 		// generating selectors strings TODO: add more selectors
 		selectorsToWrite.add("iframe[src*=" + host + "]");
 		selectorsToWrite.add("script[src*=" + host + "]");
 		selectorsToWrite.add("img[src*=" + host + "]");
-		selectorsToWrite.add("video[src*=]" + host + "]");
+		selectorsToWrite.add("video[src*=" + host + "]");
 		selectorsToWrite.add("object[data*=" + host + "]");
+		selectorsToWrite.add("form[action*=" + host + "]");
 
 		// write the list to selectorFile
-		Path selectorsFilePath = Paths.get(selectorFile);
-		try {
-			Files.write(selectorsFilePath, selectorsToWrite, StandardOpenOption.APPEND);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		if (!currentSelectors.containsAll(selectorsToWrite)) {
+			try {
+				Files.write(selectorsFilePath, selectorsToWrite, StandardOpenOption.APPEND);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 
 	}

@@ -61,8 +61,10 @@ public class SpiderLeg {
 				// Utilizzo il metodo select sul document html, passandogli uno
 				// dei selettori css, in questo modo ottengo il tag che matcha
 				// la mia condizione
-				Elements cookieTag = htmlDoc.select(selector);
-				addTags(cookieTag);
+				if (!selector.startsWith("#")) {
+					Elements cookieTag = htmlDoc.select(selector);
+					addTags(cookieTag);
+				}
 
 			}
 
@@ -120,23 +122,11 @@ public class SpiderLeg {
 
 	private void writeTagsToFile() {
 
-		String[] baseUrlSplit = baseUrl.split("\\.");
-		String filename = "";
+		String filename = baseUrl;
+		String protocolPrefixRemovalRegex = "^(http://www\\.|http://|www\\.|https://www\\.|https://|)";
 
-		if (baseUrlSplit.length >= 3) {
-
-			filename = baseUrlSplit[1];
-
-		} else {
-
-			filename = baseUrl.replaceAll("//", "").replaceAll(".", "").replaceAll("\\", "");
-			if (filename.length() >= 15) {
-
-				filename = filename.substring(0, 13);
-
-			}
-
-		}
+		filename = filename.replaceFirst(protocolPrefixRemovalRegex, "");
+		filename = filename.substring(0, filename.indexOf('.'));
 
 		Path tagFile = Paths.get("./result_files/pageCookieTags/" + filename + ".txt");
 		try {

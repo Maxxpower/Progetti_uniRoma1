@@ -17,9 +17,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
+import francesco.imperioli.uniroma1.utils.CheckPointUtils;
+
 public class Spider implements Runnable, Callable<Set<String>> {
 
-	private static final int MAX_PG = 50;
+	private static final int MAX_PG = 250;
 	private Set<String> visitate = new HashSet<String>();
 	private List<String> daVisitare = new ArrayList<String>();
 	private String startUrl;
@@ -32,11 +34,12 @@ public class Spider implements Runnable, Callable<Set<String>> {
 
 	private String nextUrl() {
 
-		String nextUrl;
+		String nextUrl = null;
 
 		do {
 
 			nextUrl = this.daVisitare.remove(0);
+
 		} while (this.visitate.contains(nextUrl));
 
 		this.visitate.add(nextUrl);
@@ -62,6 +65,12 @@ public class Spider implements Runnable, Callable<Set<String>> {
 
 			}
 
+			if (CheckPointUtils.checkVisited(urlCorrente)) {
+//				urlCorrente = nextUrl();
+				continue;
+
+			}
+			CheckPointUtils.writeUrl(urlCorrente);
 			leg.crawl(urlCorrente);
 			this.daVisitare.addAll(leg.getLinks());
 			System.out.println("Visitate: " + visitate.size() + " pagine");
